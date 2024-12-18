@@ -1,0 +1,61 @@
+body {
+  height: 500vh; /* Simulate a long scrollable page */
+  overflow-y: scroll;
+  background: black;
+  color: white; /* Ensure text is visible */
+  font-family: Arial, sans-serif;
+}
+
+p {
+  color: #31f827;
+  font-size: 1em;
+}
+
+h1 {
+  color: #C0C0C0;
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+canvas {
+  display: block;
+  position: fixed; /* Fixed position makes it overlay the background */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the canvas is behind all HTML content */
+  width: 100%; /* Make the canvas take full width */
+  height: 100%; /* Make the canvas take full height */
+}
+
+/* Style for each section */
+section {
+  height: 100vh; /* Set height to 100% of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Small screens: Up to 767px */
+@media (max-width: 767px) {
+  #section1 h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  #section1 h1 {
+    font-size: 5em;
+    margin: 0;
+    width: 10%;
+  }
+  
+  #section1 .box1 {
+    width: 70%;
+  }
+}
