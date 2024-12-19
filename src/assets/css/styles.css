@@ -62,7 +62,7 @@ section {
 .navbar {
   background: rgba(29, 29, 29, 0.3);
   backdrop-filter: blur(50px);
-  border: 2PX solid #31f827;
+  border: 2px solid #31f827;
   position: fixed;
   padding: 1em;
   width: 30%;
@@ -93,11 +93,24 @@ section {
   text-decoration: none;
   font-size: 1.2rem;
   padding: 8px;
-  transition: background-color 0.3s;
+  transition: background-color 0.8s;
   font-weight: 900;
+  border-radius: 10px;
   text-align: center;
   white-space: nowrap; /* Prevent text from breaking within links */
 }
+
+.navbar-menu a i {
+    margin-right: 8px; /* Add space between icon and text */
+}
+
+.navbar-menu a:hover {
+  background-color: #0eb006;
+  color: white;
+  border-radius: 10px;
+}
+
+
 
 @media screen and (max-width: 768px) {
   .navbar {
