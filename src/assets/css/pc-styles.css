@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 701px) {
   #section1 h1 {
     font-size: 5em;
     margin: 0;
@@ -29,14 +29,12 @@
     padding: 0;
     display: flex;
     justify-content: center;
+    color: #31f827;
   }
   
   .navbar-menu li {
     margin-left: 20px;
-  }
-  
-  .wrapped {
-    padding-bottom: 15px;
+    color: #31f827;
   }
   
   .navbar-menu a {
@@ -59,5 +57,9 @@
     background-color: #0eb006;
     color: white;
     border-radius: 10px;
+  }
+
+  .navbar-toggle {
+    display: none;
   }
 }

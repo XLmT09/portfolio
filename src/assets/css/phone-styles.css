@@ -1,5 +1,5 @@
 /* Small screens: Up to 767px */
-@media (max-width: 767px) {
+@media (max-width: 700px) {
     body {
       margin: 0;
     }
@@ -11,49 +11,108 @@
     #section1 h1 {
       font-size: 3em;
     }
-  
-    .navbar {
-      background: rgba(29, 29, 29, 0.3);
-      backdrop-filter: blur(50px);
-      border: 2px solid #31f827;
-      position: fixed;
-      width: 99%;
-      margin-top: 0.5%;
-      border-radius: 15px;
-      overflow: hidden; /* Hide overflowing content */
-    }
-    
-    .navbar-menu {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap; /* Wrap items on smaller screens */
-      justify-content: center;
-    }
-    
-    .navbar-menu li {
-      margin-left: 20px;
-    }
-    
-    .navbar-menu a {
-      color: #31f827;
-      text-decoration: none;
-      font-size: 1rem;
-      padding: 2px;
-      transition: background-color 0.8s;
-      font-weight: 900;
-      border-radius: 10px;
-      text-align: center;
-    }
-    
-    .navbar-menu a i {
-        margin-right: 5px; /* Add space between icon and text */
-    }
-    
-    .navbar-menu a:hover {
-      background-color: #0eb006;
-      color: white;
-      border-radius: 10px;
-    }
+
+/* Navbar container */
+.navbar {
+  background: rgba(29, 29, 29, 0.3);
+  backdrop-filter: blur(50px);
+  border: 1px solid #31f827;
+  padding: 0.2em;
+  position: fixed;
+  z-index: 1000;
+  text-align: center;
+  border-radius: 3px;
+  margin-left: 1%;
+  width: auto;
+}
+
+/* Default state: hide the menu */
+.navbar-menu {
+  visibility: hidden;
+  flex-direction: column;
+  background-color: rgba(29, 29, 29, 0.9);
+  border: 1px solid #31f827;
+  position: fixed;
+  margin-top: 40px;
+  width: 35vw;
+  color: #31f827;
+  padding: 10px;
+  border-radius: 5px;;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Start slightly above */
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+/* Active state: show the menu */
+.navbar-menu.active {
+  visibility: visible; /* Make the menu invisible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Links */
+.navbar-menu a {
+  color: #31f827;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-menu a:visited {
+  color: #31f827;
+}
+
+.navbar-menu a i {
+  margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+  background-color: #0eb006;
+  color: white;
+  border-radius: 5px;
+}
+
+/* List items */
+.navbar-menu li {
+  list-style-type: none;
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 2px solid #31f827;
+  width: 100%;
+}
+
+.navbar-menu li:last-child {
+  border-bottom: none;
+}
+
+/* Hamburger menu icon */
+.navbar-toggle {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  outline: none;
+  width: 25px;
+}
+
+.navbar-icon:hover {
+  background-color: #0eb006;
+  color: white;
+  padding: 1px;
+}
+
+.navbar-icon {
+  font-size: 1.3em;
+  color: #31f827;
+}
+
+/* Focus state for toggle */
+.navbar-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 5px #31f827;
+}
+
 }

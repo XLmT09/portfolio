@@ -6,35 +6,33 @@ body {
     font-family: 'Roboto', sans-serif;
   }
   
-  p {
-    color: #31f827;
-    font-size: 1em;
-  }
-  
-  h1 {
-    color: #C0C0C0;
-  }
-  
-  /* Smooth scroll for the whole page */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  canvas {
-    display: block;
-    position: fixed; /* Fixed position makes it overlay the background */
-    top: 0;
-    left: 0;
-    z-index: -1; /* Ensure the canvas is behind all HTML content */
-    width: 100%; /* Make the canvas take full width */
-    height: 100%; /* Make the canvas take full height */
-  }
-  
-  /* Style for each section */
-  section {
-    height: 100vh; /* Set height to 100% of the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-  }
+p {
+  color: #31f827;
+  font-size: 1em;
+}
+
+h1 {
+  color: #C0C0C0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+canvas {
+  display: block;
+  position: fixed; /* Fixed position makes it overlay the background */
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the canvas is behind all HTML content */
+  width: 100%; /* Make the canvas take full width */
+  height: 100%; /* Make the canvas take full height */
+}
+
+section {
+  height: 100vh; /* Set height to 100% of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
