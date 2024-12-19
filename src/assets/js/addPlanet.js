@@ -42,6 +42,8 @@ export function createEarthGroup(pos) {
   glowMesh.scale.setScalar(1.01);
   earthGroup.add(glowMesh);
 
+  earthGroup.renderOrder = 1;
+
   return { earthGroup, earthMesh, lightsMesh, cloudsMesh, glowMesh};
 }
 

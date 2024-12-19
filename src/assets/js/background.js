@@ -10,17 +10,26 @@ const far = 1000;
 
 // Set up scene, camera, and renderer
 const scene = new THREE.Scene();
+const backgroundScene = new THREE.Scene();
+
+
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-const renderer = new THREE.WebGLRenderer();
+const canvas = document.getElementById('webgl-canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setClearColor(0x000000, 0);  // Keep the background transparent
+renderer.clear();
+
+const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas });
+backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
 
 // Set initial camera position
 camera.position.z = 5;
 
 // Creating all the objects and appending to the scene 
 const stars = createStars();
-scene.add(stars);
+backgroundScene.add(stars);
 
 const mars = getPlanet({size: 0.5, img: "mars.jpg", distance: [1, 1, 25], glow: 0xC97C5D});
 scene.add(mars);
@@ -76,12 +85,14 @@ function animate() {
     saturn.rotation.y += 0.0008;
     ring.rotation.z += 0.0002;
 
+    backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
 }
 animate();
 
 // Adjust canvas size on window resize
 window.addEventListener("resize", () => {
+    backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

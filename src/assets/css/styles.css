@@ -4,6 +4,7 @@ body {
     background: black;
     color: white; /* Ensure text is visible */
     font-family: 'Roboto', sans-serif;
+    position: relative;
   }
   
 p {
@@ -13,6 +14,7 @@ p {
 
 h1 {
   color: #C0C0C0;
+  z-index: 1005;
 }
 
 html {
@@ -24,7 +26,7 @@ canvas {
   position: fixed; /* Fixed position makes it overlay the background */
   top: 0;
   left: 0;
-  z-index: -1; /* Ensure the canvas is behind all HTML content */
+  z-index: -10; /* Ensure the canvas is behind all HTML content */
   width: 100%; /* Make the canvas take full width */
   height: 100%; /* Make the canvas take full height */
 }
@@ -35,4 +37,18 @@ section {
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+#backgroundCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  z-index: -1000;
+}
+
+#webgl-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 100; /* Behind other elements but not too low */
+  pointer-events: none; /* Allow clicks to pass through the canvas */
 }

@@ -37,7 +37,7 @@
   width: 35vw;
   color: #31f827;
   padding: 10px;
-  border-radius: 5px;;
+  border-radius: 5px;
   opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Start slightly above */
   transition: opacity 0.5s ease, transform 0.5s ease; 
