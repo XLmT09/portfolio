@@ -85,6 +85,11 @@ function animate() {
     saturn.rotation.y += 0.0008;
     ring.rotation.z += 0.0002;
 
+    let width = window.innerWidth;  // Get the width of the browser window
+    let height = window.innerHeight;  // Get the height of the browser window
+
+    console.log(`Width: ${width}px, Height: ${height}px`);
+
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
 }

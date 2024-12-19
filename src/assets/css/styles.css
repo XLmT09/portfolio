@@ -13,7 +13,7 @@ p {
 }
 
 h1 {
-  color: #C0C0C0;
+  color: #ffffff;
   z-index: 1005;
 }
 
@@ -49,6 +49,6 @@ section {
 #webgl-canvas {
   position: fixed;
   inset: 0;
-  z-index: 100; /* Behind other elements but not too low */
+  z-index: -1100; /* Behind other elements but not too low */
   pointer-events: none; /* Allow clicks to pass through the canvas */
 }

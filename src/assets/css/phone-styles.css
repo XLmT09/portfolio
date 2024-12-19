@@ -1,17 +1,5 @@
 /* Small screens: Up to 767px */
 @media (max-width: 700px) {
-    body {
-      margin: 0;
-    }
-  
-    section {
-      margin: 1cqmax;
-    }
-  
-    #section1 h1 {
-      font-size: 3em;
-    }
-
 /* Navbar container */
 .navbar {
   background: rgba(29, 29, 29, 0.3);
