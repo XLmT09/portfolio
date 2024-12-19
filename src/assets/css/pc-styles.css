@@ -1,0 +1,63 @@
+@media (min-width: 768px) {
+  #section1 h1 {
+    font-size: 5em;
+    margin: 0;
+    width: 10%;
+  }
+  
+  #section1 .box1 {
+    width: 70%;
+  }
+
+  .navbar {
+    background: rgba(29, 29, 29, 0.3);
+    backdrop-filter: blur(50px);
+    border: 2px solid #31f827;
+    padding: 1em;
+    width: 600px;
+    border-radius: 15px;
+    position: fixed; /* Fix it to the top of the screen */
+    top: 0.5%; /* Adjust vertical positioning */
+    left: 50%; /* Position the left edge at the center */
+    transform: translateX(-50%); /* Shift it left by half its width */
+    z-index: 1000; /* Ensure it stays above other content */
+  }
+  
+  .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-menu li {
+    margin-left: 20px;
+  }
+  
+  .wrapped {
+    padding-bottom: 15px;
+  }
+  
+  .navbar-menu a {
+    color: #31f827;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px;
+    transition: background-color 0.8s;
+    font-weight: 900;
+    border-radius: 10px;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from breaking within links */
+  }
+  
+  .navbar-menu a i {
+      margin-right: 8px; /* Add space between icon and text */
+  }
+  
+  .navbar-menu a:hover {
+    background-color: #0eb006;
+    color: white;
+    border-radius: 10px;
+  }
+}

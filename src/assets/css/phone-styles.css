@@ -1,0 +1,59 @@
+/* Small screens: Up to 767px */
+@media (max-width: 767px) {
+    body {
+      margin: 0;
+    }
+  
+    section {
+      margin: 1cqmax;
+    }
+  
+    #section1 h1 {
+      font-size: 3em;
+    }
+  
+    .navbar {
+      background: rgba(29, 29, 29, 0.3);
+      backdrop-filter: blur(50px);
+      border: 2px solid #31f827;
+      position: fixed;
+      width: 99%;
+      margin-top: 0.5%;
+      border-radius: 15px;
+      overflow: hidden; /* Hide overflowing content */
+    }
+    
+    .navbar-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap; /* Wrap items on smaller screens */
+      justify-content: center;
+    }
+    
+    .navbar-menu li {
+      margin-left: 20px;
+    }
+    
+    .navbar-menu a {
+      color: #31f827;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 2px;
+      transition: background-color 0.8s;
+      font-weight: 900;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .navbar-menu a i {
+        margin-right: 5px; /* Add space between icon and text */
+    }
+    
+    .navbar-menu a:hover {
+      background-color: #0eb006;
+      color: white;
+      border-radius: 10px;
+    }
+}
