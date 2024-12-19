@@ -22,19 +22,19 @@ camera.position.z = 5;
 const stars = createStars();
 scene.add(stars);
 
-const mars = getPlanet({size: 0.5, img: "mars.jpg", distance: [-2, 1, 25], glow: 0xC97C5D});
+const mars = getPlanet({size: 0.5, img: "mars.jpg", distance: [1, 1, 25], glow: 0xC97C5D});
 scene.add(mars);
 
-const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [20, 3, 40], glow: 0xD1B27C});
+const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [13, 3, 40], glow: 0xD1B27C});
 scene.add(jupiter);
 
-const saturn = getPlanet({size: 5, img: "saturn.jpg", distance: [-15, 4, 85], glow: 0xD1B27C});
+const saturn = getPlanet({size: 5, img: "saturn.jpg", distance: [-12, 4, 85], glow: 0xD1B27C});
 scene.add(saturn);
 
-const ring = getRing({img: "rings2.jpg", distance: [-15, 4, 85]})
+const ring = getRing({img: "rings2.jpg", distance: [-12, 4, 85]})
 scene.add(ring);
 
-const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup();
+const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([-1, 1, 1]);
 scene.add(earthGroup);
 
 const sunLight = new THREE.DirectionalLight(0xffffff, 1.0);
@@ -53,7 +53,6 @@ function handleScroll() {
 
     // Adjust multiplier for the zoom effect
     camera.position.z = 5 + scrollFraction * 100;
-    console.log(camera.position);
 }
 
 // Listen for the scroll event
@@ -67,10 +66,10 @@ function animate() {
     stars.rotation.x += 0.00003;
     stars.rotation.y += 0.00003;
 
-    earthMesh.rotation.y += 0.0008;
-    lightsMesh.rotation.y += 0.0008;
-    glowMesh.rotation.y += 0.0008;
-    cloudsMesh.rotation.y += 0.00083;
+    earthMesh.rotation.y += 0.0002;
+    lightsMesh.rotation.y += 0.0002;
+    glowMesh.rotation.y += 0.0002;
+    cloudsMesh.rotation.y += 0.00023;
 
     mars.rotation.y += 0.0008;
     jupiter.rotation.y += 0.0004;

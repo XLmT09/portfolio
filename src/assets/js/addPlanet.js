@@ -1,7 +1,7 @@
 import { getFresnelMat } from './glow.js';
 
 // Function to create and return the Earth
-export function createEarthGroup() {
+export function createEarthGroup(pos) {
   const earthGroup = new THREE.Group();
   earthGroup.rotation.z = -20.4 * Math.PI / 180;
 
@@ -12,7 +12,8 @@ export function createEarthGroup() {
 
   const earthMesh = new THREE.Mesh(geometry, material);
   earthGroup.add(earthMesh);
-  earthGroup.position.set(2, 1, 1);
+  console.log(pos);
+  earthGroup.position.set(...pos);
 
   // Load the texture for the Earth light
   const earthLight = new THREE.TextureLoader().load("/images/earth_light.jpg");
