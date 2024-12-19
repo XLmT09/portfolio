@@ -43,7 +43,7 @@ scene.add(saturn);
 const ring = getRing({img: "rings2.jpg", distance: [-12, 4, 85]})
 scene.add(ring);
 
-const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([-1, 1, 1]);
+const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([1, 0, 3.5]);
 scene.add(earthGroup);
 
 const sunLight = new THREE.DirectionalLight(0xffffff, 1.0);

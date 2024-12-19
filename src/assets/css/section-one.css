@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   white-space: nowrap; /* Prevent wrapping initially */
+  z-index: 10000;
 }
   
 #section1 p {
@@ -12,6 +13,7 @@
 }
 
 #section1 .box-container {
+  z-index: 10000;
   display: flex;
   flex-direction: column; /* Stack the boxes vertically */
   justify-content: center; /* Vertically centers the boxes */
