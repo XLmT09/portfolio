@@ -32,11 +32,23 @@ canvas {
 }
 
 section {
-  height: 100vh; /* Set height to 100% of the viewport */
+  height: 100vh; /* Full viewport height for each section */
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+/* Change highlight colour */
+::selection {
+  background-color: #0da105;
+  color: #ffffff; 
+}
+
+/* For Firefox */
+::-moz-selection { 
+  background-color: #0da105;
+  color: #ffffff;
 }
 
 #backgroundCanvas {
@@ -51,4 +63,5 @@ section {
   inset: 0;
   z-index: 1; /* Behind other elements but not too low */
   pointer-events: none; /* Allow clicks to pass through the canvas */
+  z-index: -100;
 }
