@@ -31,7 +31,7 @@ camera.position.z = 5;
 const stars = createStars();
 backgroundScene.add(stars);
 
-const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 26.5], glow: 0xC97C5D});
+const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 27], glow: 0xC97C5D});
 scene.add(mars);
 
 const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [-13, 3, 40], glow: 0xD1B27C});

@@ -16,20 +16,31 @@ function showPopup(element) {
   const popup = document.getElementById("popup");
   const popupText = document.getElementById("popup-text");
 
-  // Get the hidden content and show it in the popup
+  // Get the hidden content from the clicked box
   const content = element.querySelector(".hidden-content").innerHTML;
-  popupText.innerHTML = content; // Display the content in popup
-  popup.style.display = "flex";  // Show the popup
-  document.body.classList.add(popupContent);  // Disable scrolling
-  document.body.classList.add("no-scroll");  // Disable scrolling
+
+  // Set the content inside the popup
+  popupText.innerHTML = content;
+
+  // Show the popup with animation
+  popup.style.display = "flex";
+  setTimeout(() => {
+    document.querySelector(".popup-content").classList.add('show');
+  }, 10);
+
+  // Prevent scrolling
+  document.body.classList.add("no-scroll");
 }
 
 function closePopup() {
   const popup = document.getElementById("popup");
-  popup.style.display = "none";  // Hide the popup
-  document.body.classList.remove("no-scroll");  // Enable scrolling
-}
 
-window.addEventListener("resize", function() {
-  location.reload();
-});
+  // Remove the animation and hide the popup
+  document.querySelector(".popup-content").classList.remove('show');
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 500); // Delay matches animation duration
+
+  // Enable scrolling
+  document.body.classList.remove("no-scroll");
+}
