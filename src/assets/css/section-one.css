@@ -54,10 +54,6 @@
   box-sizing: border-box;
 }
 
-#section1 .box1 {
-  padding: 20px;
-}
-
 #section1 .box2 {
   background: rgba(29, 29, 29, 0.3);
   border: 2px solid #31f827;
