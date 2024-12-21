@@ -41,7 +41,6 @@ function closePopup() {
     popup.style.display = "none";
   }, 500); // Delay matches animation duration
 
-  // Enable scrolling
   enableScroll();
 }
 
@@ -56,3 +55,13 @@ function enableScroll() {
 function preventDefault(e) {
   e.preventDefault();
 }
+
+// If a box has a link, open it in a new tab
+document.querySelectorAll('.box').forEach(box => {
+  box.addEventListener('click', () => {
+    const url = box.getAttribute('data-url');
+    if (url) {
+      window.open(url, '_blank');
+    }
+  });
+});
