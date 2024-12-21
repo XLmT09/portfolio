@@ -1,0 +1,96 @@
+#section3 {
+  box-sizing: border-box; /* Includes padding and border in width/height calculations */
+  max-width: 100%; /* Prevents width overflow */
+  word-wrap: break-word; /* Breaks long words to fit within the div */
+}
+  
+#section3 h1 {
+  font-size: clamp(50px, 7.7vw + 1rem, 150px);
+  margin: 0;
+  padding: 0;
+  white-space: nowrap; /* Prevent wrapping initially */
+  font-weight: 900;
+  margin-bottom: 1%;
+}
+
+#section3 h2 {
+  font-size: clamp(5px, 2vw + 0.5rem, 40px);
+}
+
+#section3 .section-content {
+  width: 60vw;
+  text-align: center;
+}
+
+@media (max-width: 1500px) {
+  #section3 .section-content {
+    width: 100vw;
+  }
+}
+
+#section3 img {
+  width: 95%;
+  margin-bottom: 5%;
+  border: 3px solid #0da105;
+}
+
+    
+#section3 p {
+  font-size: clamp(5px, 0.45vw + 0.5rem, 18px);
+  margin: 0;
+  padding: 0;
+  padding-bottom: 2%;
+}
+
+#section3 .box-container {
+  margin-top: 0; /* Ensure there's no unwanted top margin */
+  padding-top: 0; /* Remove any padding above the boxes */
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping of boxes */
+  justify-content: space-between; /* Add spacing between boxes */
+  overflow-x: auto;
+}
+
+#section3 .box {
+  background: rgba(29, 29, 29, 0.3);
+  border: 3px solid #31f827;
+  border-radius: 15px;
+  padding: 10px;
+  backdrop-filter: blur(50px);
+  flex: 1; /* Each box takes equal width */
+  box-sizing: border-box; /* Ensures padding and border are included in width */
+  margin: 5px; /* Adds spacing around the boxes */
+  max-width: 550px;
+}
+
+/* Media query for screens 700px or smaller */
+@media (max-width: 700px) {
+  #section3 .box-container {
+    flex-wrap: wrap; /* Allows wrapping */
+    justify-content: space-around; /* Adjust spacing */
+  }
+
+  #section3 .box {
+    flex: 0 0 calc(50% - 10px); /* 50% width minus margin for 2 per row */
+    margin: 5px;
+    border: 3px solid #31f827;
+  }
+
+  #section3 img {
+    width: 95%;
+    margin-bottom: 5%;
+    border: 3px solid #0da105;
+  }
+
+}
+
+#section3 .box:hover {
+  cursor: pointer;
+  background-color: #0da105;
+  transition: background-color 0.8s;
+}
+
+#section3 .box:hover p {
+  color: white;
+}
+  
