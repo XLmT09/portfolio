@@ -37,17 +37,22 @@ section {
   justify-content: center;
   align-items: center;
   color: white;
+  scroll-snap-align: start; /* Snap sections into view when scrolling */
+  position: relative;
+  flex-wrap: wrap;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 20vh; /* Adds breathing space for the snap */
 }
 
 /* Change highlight colour */
 ::selection {
-  background-color: #0da105;
+  background-color: rgba(13, 161, 5, 0.9);
   color: #ffffff; 
 }
 
-/* For Firefox */
+/* Change highlight colour for Firefox */
 ::-moz-selection { 
-  background-color: #0da105;
+  background-color: rgba(13, 161, 5, 0.9);
   color: #ffffff;
 }
 
