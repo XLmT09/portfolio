@@ -31,10 +31,10 @@ camera.position.z = 5;
 const stars = createStars();
 backgroundScene.add(stars);
 
-const mars = getPlanet({size: 0.5, img: "mars.jpg", distance: [1, 1, 25], glow: 0xC97C5D});
+const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 26.5], glow: 0xC97C5D});
 scene.add(mars);
 
-const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [13, 3, 40], glow: 0xD1B27C});
+const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [-13, 3, 40], glow: 0xD1B27C});
 scene.add(jupiter);
 
 const saturn = getPlanet({size: 5, img: "saturn.jpg", distance: [-12, 4, 85], glow: 0xD1B27C});
@@ -80,7 +80,7 @@ function animate() {
     glowMesh.rotation.y += 0.0002;
     cloudsMesh.rotation.y += 0.00023;
 
-    mars.rotation.y += 0.0008;
+    mars.rotation.y += 0.0002;
     jupiter.rotation.y += 0.0004;
     saturn.rotation.y += 0.0008;
     ring.rotation.z += 0.0002;
