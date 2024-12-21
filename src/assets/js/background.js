@@ -83,7 +83,7 @@ function animate() {
     mars.rotation.y += 0.0002;
 
     // Adjust mars pos based on cmaera pos 
-    if (camera.position.z >= 22 && camera.position.z <= 31) {
+    if (camera.position.z >= 22 && camera.position.z <= 33) {
         const offset = Math.sin(camera.position.z * 0.1) * 0.2; // Sinusoidal motion
 
         mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);

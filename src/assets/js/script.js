@@ -29,7 +29,7 @@ function showPopup(element) {
   }, 10);
 
   // Prevent scrolling
-  document.body.classList.add("no-scroll");
+  disableScroll();
 }
 
 function closePopup() {
@@ -42,5 +42,17 @@ function closePopup() {
   }, 500); // Delay matches animation duration
 
   // Enable scrolling
-  document.body.classList.remove("no-scroll");
+  enableScroll();
+}
+
+function disableScroll() {
+  document.body.addEventListener('wheel', preventDefault, { passive: false });
+}
+
+function enableScroll() {
+  document.body.removeEventListener('wheel', preventDefault);
+}
+
+function preventDefault(e) {
+  e.preventDefault();
 }
