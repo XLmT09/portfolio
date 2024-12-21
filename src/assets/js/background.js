@@ -31,7 +31,7 @@ camera.position.z = 5;
 const stars = createStars();
 backgroundScene.add(stars);
 
-const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 27], glow: 0xC97C5D});
+const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 26.5], glow: 0xC97C5D});
 scene.add(mars);
 
 const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [-13, 3, 40], glow: 0xD1B27C});
@@ -81,14 +81,20 @@ function animate() {
     cloudsMesh.rotation.y += 0.00023;
 
     mars.rotation.y += 0.0002;
+
+    // Adjust mars pos based on cmaera pos 
+    if (camera.position.z >= 22 && camera.position.z <= 31) {
+        const offset = Math.sin(camera.position.z * 0.1) * 0.2; // Sinusoidal motion
+
+        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);
+        mars.position.x = THREE.MathUtils.lerp(mars.position.x, 0 - offset, 0.05);
+    }
+
     jupiter.rotation.y += 0.0004;
     saturn.rotation.y += 0.0008;
     ring.rotation.z += 0.0002;
 
-    let width = window.innerWidth;  // Get the width of the browser window
-    let height = window.innerHeight;  // Get the height of the browser window
-
-    console.log(`Width: ${width}px, Height: ${height}px`);
+    console.log(`camera z pos ${camera.position.z}`);
 
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);

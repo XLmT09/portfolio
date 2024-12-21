@@ -1,10 +1,11 @@
 body {
   height: 500vh; /* Simulate a long scrollable page */
-  overflow-y: scroll;
   background: black;
   color: white; /* Ensure text is visible */
   font-family: 'Roboto', sans-serif;
   position: relative;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 p {
@@ -40,8 +41,6 @@ section {
   scroll-snap-align: start; /* Snap sections into view when scrolling */
   position: relative;
   flex-wrap: wrap;
-  scroll-snap-type: y mandatory;
-  scroll-padding: 20vh; /* Adds breathing space for the snap */
 }
 
 /* Change highlight colour */
