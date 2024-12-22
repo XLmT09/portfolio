@@ -3,7 +3,7 @@
 /* Navbar container */
 .navbar {
   background: rgba(29, 29, 29, 0.3);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(10px);
   border: 1px solid #31f827;
   padding: 0.2em;
   position: fixed;

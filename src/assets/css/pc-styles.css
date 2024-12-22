@@ -1,7 +1,7 @@
 @media (min-width: 701px) {
   .navbar {
     background: rgba(29, 29, 29, 0.3);
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(10px);
     border: 2px solid #31f827;
     padding: 1em;
     width: 600px;
