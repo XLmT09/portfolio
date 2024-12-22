@@ -42,7 +42,7 @@ scene.add(jupiter);
 const saturn = getPlanet({size: 4, img: "saturn.jpg", position: [-12, 4, 85], glow: 0xD1B27C});
 scene.add(saturn);
 
-const ring = getSaturnsRing({img: "rings2.jpg", position: [-12, 4, 85]})
+const ring = getSaturnsRing({img: "saturnRings.jpg", position: [-12, 4, 85]})
 scene.add(ring);
 
 const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([1, 0, 3.5]);
@@ -103,6 +103,7 @@ function animate() {
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 34, 0.01);
     }
 
+    console.log(`width ${window.innerWidth}, height ${window.innerHeight}`);
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
 }

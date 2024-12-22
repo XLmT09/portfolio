@@ -2,7 +2,7 @@ export function createStars() {
     const starGeometry = new THREE.BufferGeometry();
 
     // Load the circle texture
-    const diamondTexture = new THREE.TextureLoader().load('images/diamond.png');
+    const diamondTexture = new THREE.TextureLoader().load('images/stars/diamond.png');
 
     // Create the PointsMaterial using the texture
     const starMaterial = new THREE.PointsMaterial({
