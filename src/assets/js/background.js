@@ -1,4 +1,4 @@
-import { createEarthGroup, getPlanet, getRing } from './addPlanet.js';
+import { createEarthGroup, getPlanet, getSaturnsRing } from './addPlanet.js';
 import { createStars } from './starfield.js';
 
 const w = window.innerWidth;
@@ -11,18 +11,20 @@ const far = 1000;
 // Set up scene, camera, and renderer
 const scene = new THREE.Scene();
 const backgroundScene = new THREE.Scene();
-
-
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 const canvas = document.getElementById('webgl-canvas');
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setClearColor(0x000000, 0);  // Keep the background transparent
+// Keep the background transparent
+renderer.setClearColor(0x000000, 0); 
 renderer.clear();
 
 const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas });
 backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
+
+const jupiterRadius = 10 / 2;
 
 // Set initial camera position
 camera.position.z = 5;
@@ -31,24 +33,24 @@ camera.position.z = 5;
 const stars = createStars();
 backgroundScene.add(stars);
 
-const mars = getPlanet({size: 1.4, img: "mars.jpg", distance: [0, 0, 26.5], glow: 0xC97C5D});
+const mars = getPlanet({size: 1.4, img: "mars.jpg", position: [-1, 0, 26.5], glow: 0xC97C5D});
 scene.add(mars);
 
-const jupiter = getPlanet({size: 11, img: "jupiter.jpg", distance: [-13, 3, 40], glow: 0xD1B27C});
+const jupiter = getPlanet({size: 10, img: "jupiter.jpg", position: [0, 0, 34], glow: 0xD1B27C});
 scene.add(jupiter);
 
-const saturn = getPlanet({size: 5, img: "saturn.jpg", distance: [-12, 4, 85], glow: 0xD1B27C});
+const saturn = getPlanet({size: 4, img: "saturn.jpg", position: [-12, 4, 85], glow: 0xD1B27C});
 scene.add(saturn);
 
-const ring = getRing({img: "rings2.jpg", distance: [-12, 4, 85]})
+const ring = getSaturnsRing({img: "rings2.jpg", position: [-12, 4, 85]})
 scene.add(ring);
 
 const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([1, 0, 3.5]);
 scene.add(earthGroup);
 
+// Add light to objects so it not completely dark
 const sunLight = new THREE.DirectionalLight(0xffffff, 1.0);
 sunLight.position.set(-2, 0.5, 1.5);
-sunLight.castShadow = false;
 scene.add(sunLight);
 
 // Function to update camera based on scroll position
@@ -59,7 +61,6 @@ function handleScroll() {
     const maxScroll = document.body.scrollHeight - window.innerHeight;
     // Calculate the scroll fraction (0 to 1)
     const scrollFraction = scrollY / maxScroll; 
-
     // Adjust multiplier for the zoom effect
     camera.position.z = 5 + scrollFraction * 100;
 }
@@ -75,26 +76,32 @@ function animate() {
     stars.rotation.x += 0.00003;
     stars.rotation.y += 0.00003;
 
+    // Rotate the planets and there layers
     earthMesh.rotation.y += 0.0002;
     lightsMesh.rotation.y += 0.0002;
     glowMesh.rotation.y += 0.0002;
     cloudsMesh.rotation.y += 0.00023;
-
-    mars.rotation.y += 0.0002;
-
-    // Adjust mars pos based on cmaera pos 
-    if (camera.position.z >= 22 && camera.position.z <= 33) {
-        const offset = Math.sin(camera.position.z * 0.1) * 0.2; // Sinusoidal motion
-
-        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);
-        mars.position.x = THREE.MathUtils.lerp(mars.position.x, 0 - offset, 0.05);
-    }
-
-    jupiter.rotation.y += 0.0004;
+    jupiter.rotation.y += 0.0002;
     saturn.rotation.y += 0.0008;
     ring.rotation.z += 0.0002;
+    mars.rotation.y += 0.0002;
+        
 
-    console.log(`camera z pos ${camera.position.z}`);
+    // Adjust mars pos based on camera pos, so it stays in view on section 2 
+    if (camera.position.z >= 22 && camera.position.z <= 33) {
+        // Sinusoidal motion
+        const offset = Math.sin(camera.position.z * 0.1) * 0.2;
+
+        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);
+        mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, 0.05);
+    }
+
+    // Adjust jupiter pos based on camera pos, so it stays in view on section 3
+    if (camera.position.z >= 40 && camera.position.z <= 60) {
+        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, 0.01);
+    } else {
+        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 34, 0.01);
+    }
 
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
