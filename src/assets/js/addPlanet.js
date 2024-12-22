@@ -72,13 +72,14 @@ export function getPlanet({img = '', size = 1, position = [], glow}) {
 
   // Add slight tilt to the planet
   planetGroup.rotation.z = -20.4 * Math.PI / 180;
-  
+    
   const planetRimMat = getFresnelMat({ rimHex: glow, facingHex: 0x000000 });
   const planetRimMesh = new THREE.Mesh(geo, planetRimMat);
   // The frensel should just outside the planet hence the 1.01 multiplier
   planetRimMesh.scale.setScalar(1.01);
   
   planet.add(planetRimMesh);
+  
   planetGroup.add(planet);
 
   return planetGroup;

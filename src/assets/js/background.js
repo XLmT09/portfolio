@@ -36,7 +36,7 @@ backgroundScene.add(stars);
 const mars = getPlanet({size: 1.4, img: "mars.jpg", position: [-1, 0, 26.5], glow: 0xC97C5D});
 scene.add(mars);
 
-const jupiter = getPlanet({size: 10, img: "jupiter.jpg", position: [0, 0, 34], glow: 0xD1B27C});
+const jupiter = getPlanet({size: 10, img: "jupiter.jpg", position: [0, 0, 34], glow: 0xFF8C00});
 scene.add(jupiter);
 
 const saturn = getPlanet({size: 4, img: "saturn.jpg", position: [-12, 4, 85], glow: 0xD1B27C});
@@ -96,7 +96,7 @@ function animate() {
         mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, 0.05);
     }
 
-    // Adjust jupiter pos based on camera pos, so it stays in view on section 3
+    //Adjust jupiter pos based on camera pos, so it stays in view on section 3
     if (camera.position.z >= 40 && camera.position.z <= 60) {
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, 0.01);
     } else {
