@@ -88,18 +88,22 @@ function animate() {
         
 
     // Adjust mars pos based on camera pos, so it stays in view on section 2 
-    if (camera.position.z >= 22 && camera.position.z <= 33) {
+    if (camera.position.z >= 20 && camera.position.z <= 33) {
         // Sinusoidal motion
         const offset = Math.sin(camera.position.z * 0.1) * 0.2;
 
         mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);
         mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, 0.05);
+    } else {
+        // Go back to inital pos when camera out of range
+        mars.position.z = THREE.MathUtils.lerp(mars.position.z, 26.5, 0.01);
     }
 
     //Adjust jupiter pos based on camera pos, so it stays in view on section 3
     if (camera.position.z >= 40 && camera.position.z <= 60) {
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, 0.01);
     } else {
+        // Go back to inital pos when camera out of range
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 34, 0.01);
     }
 
