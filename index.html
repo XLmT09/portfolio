@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="src/assets/css/section-one.css">
   <link rel="stylesheet" href="src/assets/css/section-two.css">
   <link rel="stylesheet" href="src/assets/css/section-three.css">
+  <link rel="stylesheet" href="src/assets/css/popup.css">
 </head>
 <body>
     <nav class="navbar">
@@ -103,7 +104,7 @@
     <div class="section-content">
       <h1>Projects</h1>
       <div class="box-container">
-        <div class="box box31">
+        <div class="box box31" onclick="showPopup(this)">
           <h2>Portfolio Website</h2>
           <img src="\images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
           <div class="hidden-content" style="display: none;">
@@ -112,22 +113,28 @@
             <p>My portfolio website is developed using HTML, CSS, and JavaScript, incorporating the Three.js library for 3D graphics. It showcases my skills and projects through interactive and visually engaging elements, providing a modern and dynamic user experience.</p>
           </div>
         </div>
-        <div class="box box32">
+        <div class="box box32" onclick="showPopup(this)">
           <h2>Postfix/Infix Calculator</h2>
           <img src="\images\section3\section3_calculator.png" alt="Image of postfix/infix calculator.">
           <div class="hidden-content" style="display: none;">
-            <h2>Portfolio Website</h2>
-            <img src="\images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
-            <p>My portfolio website is developed using HTML, CSS, and JavaScript, incorporating the Three.js library for 3D graphics. It showcases my skills and projects through interactive and visually engaging elements, providing a modern and dynamic user experience.</p>
+            <h2>Postfix/Infix Calculator</h2>
+            <img src="\images\section3\section3_calculator.png" alt="Image of my website portfolio.">
+            <p>This calculator application was one of my early university projects, featuring both a command-line and a GUI version, entirely programmed in Java. While it was a fun project to build, the key takeaway was the methodologies I applied throughout its development. I practised Test-Driven Development (TDD), utilized Maven for project management, wrote JUnit tests, and adhered to Git standards such as tagging and branching. Overall, this project helped me develop and follow solid software engineering principles.</p>
           </div>
         </div>
-        <div class="box box33">
+        <div class="box box33" onclick="showPopup(this)">
           <h2>Single and Multi Agent in a Maze Game</h2>
           <img src="\images\section3\section3_maze.png" alt="Image of Single and Multi Agent in a Maze Game project.">
           <div class="hidden-content" style="display: none;">
             <h2>Single and Multi Agent in a Maze Game</h2>
             <img src="\images\section3\section3_maze.png" alt="Image of my website portfolio.">
             <p>This is my final year dissertation, which is currently unavailable until it is completed and graded. I am using Python and the Pygame module, as they enable me to quickly develop an engaging GUI, which allows me to focus on the core objective: exploring/analysing various pathfinding strategies, ranging from simple approaches like DFS to more complex methods such as Q-learning.</p>
+          </div>
+        </div>
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <div class="close-btn" onclick="closePopup()"><i class="fa-solid fa-x"></i> Leave</div>
+            <div id="popup-text"></div>
           </div>
         </div>
       </div>
