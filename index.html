@@ -90,21 +90,31 @@
             <p><span class="label">Description:</span> I helped first-year computer science students understand concepts of mathematical structures and machine learning modules.</p>
           </div>
         </div>
-        <div id="popup" class="popup">
-          <div class="popup-content">
-            <div class="close-btn" onclick="closePopup()"><i class="fa-solid fa-x"></i> Leave</div>
-            <div id="popup-text"></div>
-          </div>
-        </div>
       </div>
   </div>
   </section>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <div class="close-btn-container">
+        <div class="close-btn" onclick="closePopup()">
+          <i class="fa-regular fa-circle-xmark"></i> Leave
+        </div>
+        <div class="close-btn github-popup-btn">
+          <a href="#" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> Github
+          </a>
+        </div>
+      </div>
+      <div id="popup-text"></div>
+    </div>
+  </div>
 
   <section class="section" id="section3">
     <div class="section-content">
       <h1>Projects</h1>
       <div class="box-container">
-        <div class="box box31" onclick="showPopup(this)">
+        <div class="box box31" onclick="showPopup(this, true, `https://github.com/XLmT09/XLmT09.github.io`)">
           <h2>Portfolio Website</h2>
           <img src="\images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
           <div class="hidden-content" style="display: none;">
@@ -115,7 +125,7 @@
             <p>My portfolio website is developed using HTML, CSS, and JavaScript, incorporating the Three.js library for 3D graphics. It showcases my skills and projects through interactive and visually engaging elements, providing a modern and dynamic user experience.</p>
           </div>
         </div>
-        <div class="box box32" onclick="showPopup(this)">
+        <div class="box box32" onclick="showPopup(this, true, `https://github.com/XLmT09/Postfix-Infix-Calculator`)">
           <h2>Postfix/Infix Calculator</h2>
           <img src="\images\section3\section3_calculator.png" alt="Image of postfix/infix calculator.">
           <div class="hidden-content" style="display: none;">
@@ -134,13 +144,7 @@
             <div class="img-container">
               <img src="\images\section3\section3_maze.png" alt="Image of my website portfolio.">
             </div>
-              <p>This is my final year dissertation, which is currently unavailable until it is completed and graded. I am using Python and the Pygame module, as they enable me to quickly develop an engaging GUI, which allows me to focus on the core objective: exploring/analysing various pathfinding strategies, ranging from simple approaches like DFS to more complex methods such as Q-learning.</p>
-          </div>
-        </div>
-        <div id="popup" class="popup">
-          <div class="popup-content">
-            <div class="close-btn" onclick="closePopup()"><i class="fa-solid fa-x"></i> Leave</div>
-            <div id="popup-text"></div>
+              <p>This is my final year dissertation, which is currently <span class="important-text">unavailable</span> until it is completed and graded. I am using Python and the Pygame module, as they enable me to quickly develop an engaging GUI, which allows me to focus on the core objective: exploring/analysing various pathfinding strategies, ranging from simple approaches like DFS to more complex methods such as Q-learning.</p>
           </div>
         </div>
       </div>

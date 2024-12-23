@@ -43,6 +43,11 @@ section {
   flex-wrap: wrap;
 }
 
+.important-text {
+  font-weight: 900;
+  color: #FF3333;
+}
+
 /* Change highlight colour */
 ::selection {
   background-color: rgba(13, 161, 5, 0.9);

@@ -52,21 +52,44 @@
   color: white;
 }
 
+/* Container for Leave button and GitHub icon */
+.close-btn-container {
+  display: flex; /* Align Leave button and GitHub icon horizontally */
+  align-items: center; /* Vertically align them */
+  gap: 10px; /* Space between Leave button and GitHub icon */
+}
+
+/* Leave button styles (existing styles retained) */
 .close-btn {
   font-weight: 900;
   font-size: 20px;
   transition: background-color 0.8s;
   cursor: pointer;
   width: 80px;
-  padding: 5px;
-  padding-left: 8px;
+  padding: 8px;
   border-radius: 10px;
+  text-align: center; /* Ensures text/icon are centered */
 }
 
+/* Hover effect for Leave button */
 .close-btn:hover {
   background-color: #0da105;
   color: white;
   border-radius: 10px;
+}
+
+/* GitHub link (icon next to Leave button) */
+.github-link {
+  font-size: 20px; /* Match size with Leave button */
+  color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* Remove underline for link */
+  display: flex; /* Keep the icon inline with the button */
+  align-items: center; /* Vertically center the icon */
+  gap: 8px;
+}
+
+.github-popup-btn {
+  padding-right: 16px;
 }
 
 .popup-content .img-container {
