@@ -11,7 +11,7 @@ export function createEarthGroup(pos) {
 
   // Load the texture for the Earth
   const texture = textLoader.load("/images/planets/earth.jpg");
-  const geometry = new THREE.IcosahedronGeometry(1, 12);
+  const geometry = new THREE.IcosahedronGeometry(1, 15);
   const material = new THREE.MeshStandardMaterial({ map: texture });
 
   const earthMesh = new THREE.Mesh(geometry, material);
