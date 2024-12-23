@@ -2,6 +2,7 @@
   box-sizing: border-box; /* Includes padding and border in width/height calculations */
   max-width: 100%; /* Prevents width overflow */
   word-wrap: break-word; /* Breaks long words to fit within the div */
+  background-color: aliceblue;
 }
 
 #section3 h1 {
@@ -54,16 +55,17 @@
   max-height: 500px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   #section3 .box-container {
-    flex-wrap: wrap; /* Allows wrapping */
-    justify-content: space-around; /* Adjust spacing */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Distribute space evenly */
   }
-
+  
   #section3 .box {
-    flex: 0 0 calc(50% - 10px); /* 50% width minus margin for 2 per row */
-    margin: 5px;
-    max-width: 280px;
+    flex: 0 0 calc(33.33% - 10px); /* 33.33% width to fit 3 boxes per row */
+    margin: 5px; /* Space between items */
+    box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
   }
 
   #section3 .section-content {
@@ -71,15 +73,29 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 400px) {
   #section3 .box-container {
-    flex-wrap: wrap; /* Allows wrapping */
-    justify-content: space-around; /* Adjust spacing */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Distribute space evenly */
   }
 
-  #section3 .box {
-    flex: 0 0 calc(50% - 10px); /* 50% width minus margin for 2 per row */
-    margin: 5px;
+#section3 .box-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  justify-content: space-between; /* Distribute space evenly */
+}
+
+#section3 .box {
+  flex: 0 0 calc(50% - 10px); /* 50% width for two boxes per row */
+  margin: 5px; /* Adds spacing between the boxes */
+  box-sizing: border-box; /* Ensures padding and borders are included in the width */
+}
+
+#section3 .box {
+    flex: 0 0 calc(50% - 10px); /* 33.33% width to fit 3 boxes per row */
+    margin: 5px; /* Space between items */
+    box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
   }
 }
 

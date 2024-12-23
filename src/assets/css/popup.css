@@ -30,12 +30,7 @@
   opacity: 0;
   transform: translateY(-50px); /* Start with slight vertical offset */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Animation on opacity and transform */
-}
-
-@media (max-width: 700px) {
-  .popup-content {
-    width: 80%;
-  }
+  overflow: auto;
 }
 
 .popup-content.show {
@@ -43,12 +38,12 @@
   transform: translateY(0); /* Move to the natural position */
 }
 
-#section2 .label {
+.label {
   color: white;
 }
 
 #popup-text p {
-  font-size: clamp(5px, 0.45vw + 1rem, 22px);
+  font-size: clamp(5px, 0.45vw + 0.8rem, 22px);
   margin-bottom: 1%;
 }
 
@@ -74,8 +69,22 @@
   border-radius: 10px;
 }
 
+.popup-content .img-container {
+  text-align: center;
+}
+
 .popup-content img{
-  width: 30%;
+  width: 50%;
   margin-bottom: 5%;
   border: 3px solid #0da105;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .popup-content {
+    width: 85%;
+  }
 }
