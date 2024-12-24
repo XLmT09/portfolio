@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hijithan's Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script type="module" crossorigin src="/portfolio/assets/index-CBf3rEX9.js"></script>
+  <link rel="stylesheet" crossorigin href="/portfolio/assets/index-xHV5q9BK.css">
+</head>
+<body>
+    <nav class="navbar">
+      <div class="navbar-container">
+          <ul class="navbar-menu">
+              <li><a href="#section1"><i class="fa-solid fa-earth-americas"></i>Home</a></li>
+              <li><a href="#section2"><i class="fa-solid fa-rocket"></i>Experience</a></li>
+              <li><a href="#section3"><i class="fa-solid fa-folder-open"></i>Projects</a></li>
+              <li><a href="hijithanResume.pdf" target="_blank"><i class="fa-solid fa-circle-arrow-down"></i>Download CV</a></li>
+          </ul>
+
+          <div class="navbar-toggle" id="navbar-toggle">
+              <span class="navbar-icon"><i class="fa-solid fa-list"></i></span>
+          </div>
+      </div>
+  </nav>
+  <section class="section" id="section1">
+    <div class="box-container">
+      <div class="box1">
+        <p><b>Hello, my name is</b></p>
+        <h1>Hijithan</h1>
+        <h1>Arunthavarajah.</h1>
+      </div>
+      <div class="box2">
+        <p>I'm in my final year of Computer Science at Royal Holloway University of London. During my industry year at HPE, I had the opportunity to contribute to developing and maintaining some of HPE's industry-leading and next-generation storage products. I'm looking forward to exploring future opportunities in software development and technology fields where I can apply my skills to keep learning and contribute to creating meaningful solutions.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" id="section2">
+    <div class="section-content">
+      <h1>Experience</h1>
+      <div class="box-container">
+        <div class="box box1"  onclick="showPopup(this)">
+          <h2>CS Teaching Assistant</h2>
+          <p><b>Company:</b> Royal Holloway</p>
+          <p><b>Date:</b> Sep 2024 - Present</p>
+          <div class="hidden-content" style="display: none;">
+            <h2>CS Teaching Assistant</h2>
+            <p><span class="label">Company:</span> Royal Holloway</p>
+            <p><span class="label">Date:</span> Sep 2024 - Present</p>
+            <p><span class="label">Description:</span> I am currently serving as a teaching assistant for introductory and intermediate computer science courses, including Programming Laboratory (focused on Python and Java fundamentals) and Software Engineering (centred on building full-stack web applications using industry-standard workflows). In these courses, I have supported students in mastering technical concepts such as Test-Driven Development (TDD), CI/CD pipelines, Git, and design patterns, ensuring they develop strong technical skills and a solid foundation in software development practices.</p>
+          </div>
+        </div>
+        <div class="box box2"  onclick="showPopup(this)">
+          <h2>Software Engineer Part Time</h2>
+          <p><b>Company:</b> Hewlett Packard Enterprise</p>
+          <p><b>Date:</b> Aug 2024 - Present</p>
+          <div class="hidden-content" style="display: none;">
+            <h2>Software Engineer Part Time</h2>
+            <p><span class="label">Company:</span> Hewlett Packard Enterprise</p>
+            <p><span class="label">Date:</span> Aug 2024 - Present</p>
+            <p><span class="label">Description:</span> I am working part-time at HPE while completing my final year at Royal Holloway.</p>
+          </div>
+        </div>
+        <div class="box box3"  onclick="showPopup(this)">
+          <h2>Software Engineer Intern</h2>
+          <p><b>Company:</b> Hewlett Packard Enterprise</p>
+          <p><b>Date:</b> Jul 2023 - Aug 2024</p>
+          <div class="hidden-content" style="display: none;">
+            <h2>Software Engineer Intern</h2>
+            <p><span class="label">Company:</span> Hewlett Packard Enterprise</p>
+            <p><span class="label">Date:</span> Jul 2023 - Aug 2024</p>
+            <p><span class="label">Description:</span> I worked on the development/maintenance of some of HPE's industry-leading and next-generation storage products, using languages such as C, C++, and Perl.</p>
+          </div>
+        </div>
+        <div class="box box4"  onclick="showPopup(this)">
+          <h2>Math Mentor</h2>
+          <p><b>Company:</b> Royal Holloway</p>
+          <p><b>Date:</b> Sep 2022 - Apr 2023</p>
+          <div class="hidden-content" style="display: none;">
+            <h2>Math Mentor</h2>
+            <p><span class="label">Company:</span> Royal Holloway</p>
+            <p><span class="label">Date:</span> Sep 2022 - Apr 2023</p>
+            <p><span class="label">Description:</span> I helped first-year computer science students understand concepts of mathematical structures and machine learning modules.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  </section>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <div class="close-btn-container">
+        <div class="close-btn" onclick="closePopup()">
+          <i class="fa-regular fa-circle-xmark"></i> Leave
+        </div>
+        <div class="close-btn github-popup-btn">
+          <a href="#" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> Github
+          </a>
+        </div>
+      </div>
+      <div id="popup-text"></div>
+    </div>
+  </div>
+
+  <section class="section" id="section3">
+    <div class="section-content">
+      <h1>Projects</h1>
+      <div class="box-container">
+        <div class="box box31" onclick="showPopup(this, true, `https://github.com/XLmT09/XLmT09.github.io`)">
+          <h2>Portfolio Website</h2>
+          <img src="\images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
+          <div class="hidden-content" style="display: none;">
+            <h2>Portfolio Website</h2>
+            <div class="img-container">
+              <img src="\images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
+            </div>
+            <p>My portfolio website is developed using HTML, CSS, and JavaScript, incorporating the Three.js library for 3D graphics. It showcases my skills and projects through interactive and visually engaging elements, providing a modern and dynamic user experience.</p>
+          </div>
+        </div>
+        <div class="box box32" onclick="showPopup(this, true, `https://github.com/XLmT09/Postfix-Infix-Calculator`)">
+          <h2>Postfix/Infix Calculator</h2>
+          <img src="\images\section3\section3_calculator.png" alt="Image of postfix/infix calculator.">
+          <div class="hidden-content" style="display: none;">
+            <h2>Postfix/Infix Calculator</h2>
+            <div class="img-container">
+              <img src="\images\section3\section3_calculator.png" alt="Image of my website portfolio.">
+            </div>
+            <p>This calculator application was one of my early university projects, featuring both a command-line and a GUI version, entirely programmed in Java. While it was a fun project to build, the key takeaway was the methodologies I applied throughout its development. I practised Test-Driven Development (TDD), utilized Maven for project management, wrote JUnit tests, and adhered to Git standards such as tagging and branching. Overall, this project helped me develop and follow solid software engineering principles.</p>
+          </div>
+        </div>
+        <div class="box box33" onclick="showPopup(this)">
+          <h2>Single and Multi Agent in a Maze Game</h2>
+          <img src="\images\section3\section3_maze.png" alt="Image of Single and Multi Agent in a Maze Game project.">
+          <div class="hidden-content" style="display: none;">
+            <h2>Single and Multi Agent in a Maze Game</h2>
+            <div class="img-container">
+              <img src="\images\section3\section3_maze.png" alt="Image of my website portfolio.">
+            </div>
+              <p>This is my final year dissertation, which is currently <span class="important-text">unavailable</span> until it is completed and graded. I am using Python and the Pygame module, as they enable me to quickly develop an engaging GUI, which allows me to focus on the core objective: exploring/analysing various pathfinding strategies, ranging from simple approaches like DFS to more complex methods such as Q-learning.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section" id="section4">
+    <div class="box-container">
+      <div class="box1">
+        <h1>Thanks for Visiting</h1>
+      </div>
+      <div class="box2">
+        <p>
+          <b>Thank you for visiting my website!</b>
+        </p>
+        <br>
+        <p>
+          I created this site as a personal project, inspired by the portfolios I've seen from others. Plus, I had some extra time during the Christmas break and wanted to put it to good use.
+        </p>
+        <br>
+        <p>
+          Why the space theme, you ask? While brainstorming ideas, YouTube recommended a few space-related videos, and I thought that incorporating this would make my site visually appealing.
+        </p>
+        <br>
+        <p>
+          As for the green and black colour scheme, I initially thought it was inspired by one of my favourite games from the past, Fallout 4. However, when I revisited the game, I realized it didn't use this palette. 
+          I guess it was just my imagination <i class="fa-regular fa-face-smile-wink"></i>
+        </p>
+        <br>
+        <p>
+          To refine my design, I researched several websites and analyzed their stylistic choices. One that stood out to me was <a href="https://webflow.com/ai" target="_blank">Webflow's AI website</a>, which I discovered under <a href="https://www.awwwards.com/websites/black/" target="_blank">Best Black Websites</a> on Awwwards.
+        </p>
+        <br>
+        <p>
+          Thanks again for visiting :)
+        </p>
+      </div>
+      <div class="box3">
+        <a href="https://www.linkedin.com/in/hijithan/" target="_blank" class="link-item">
+          <i class="fa-brands fa-linkedin"></i> Linkedin
+        </a>
+        <a href="mailto:hijithanarun@hotmail.com" class="link-item">
+          <i class="fa-regular fa-envelope"></i> Mail
+        </a>
+        <a href="https://github.com/XLmT09" target="_blank" class="link-item">
+          <i class="fa-brands fa-github"></i> Github
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="src/assets/js/script.js"></script>
+</body>
+<canvas id="backgroundCanvas"></canvas>
+<canvas id="webgl-canvas"></canvas>
+
+</html>
