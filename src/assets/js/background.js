@@ -25,6 +25,7 @@ const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas })
 backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
 
 const jupiterRadius = 10 / 2;
+const planetSpeed = 0.005;
 
 // Set initial camera position
 camera.position.z = 5;
@@ -39,10 +40,10 @@ scene.add(mars);
 const jupiter = getPlanet({size: 10, img: "jupiter.jpg", position: [0, 0, 34], glow: 0xFF8C00});
 scene.add(jupiter);
 
-const saturn = getPlanet({size: 4, img: "saturn.jpg", position: [-12, 4, 85], glow: 0xD1B27C});
+const saturn = getPlanet({size: 4, img: "saturn.jpg", position: [-0.5, -1, 90], glow: 0xD1B27C});
 scene.add(saturn);
 
-const ring = getSaturnsRing({img: "saturnRings.jpg", position: [-12, 4, 85]})
+const ring = getSaturnsRing({img: "saturnRings.jpg", position: [-0.5, -0.4, 90]})
 scene.add(ring);
 
 const {earthGroup,  earthMesh, lightsMesh, cloudsMesh, glowMesh} = createEarthGroup([1, 0, 3.5]);
@@ -65,8 +66,44 @@ function handleScroll() {
     camera.position.z = 5 + scrollFraction * 100;
 }
 
+// Function to update planet positions baed on camera
+function handlePlanetFollow() {
+
+
+    // Adjust mars pos based on camera pos, so it stays in view on section 2 
+    if (camera.position.z >= 20 && camera.position.z <= 33) {
+        // Sinusoidal motion
+        const offset = Math.sin(camera.position.z * 0.1) * 0.2;
+
+        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, planetSpeed);
+        mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, planetSpeed);
+    } else {
+        // Go back to inital pos when camera out of range
+        mars.position.z = THREE.MathUtils.lerp(mars.position.z, 26.5, planetSpeed);
+    }
+
+    // Adjust jupiter pos based on camera pos, so it stays in view on section 3
+    if (camera.position.z >= 40 && camera.position.z <= 60) {
+        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, planetSpeed);
+    } else {
+        // Go back to inital pos when camera out of range
+        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 30, planetSpeed);
+    }
+
+    // Adjust saturn pos based on camera pos, so it stays in view on section 4
+    if (camera.position.z >= 75 && camera.position.z <= 100) {
+        saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, camera.position.z - 16, planetSpeed);
+        ring.position.z = THREE.MathUtils.lerp(ring.position.z, camera.position.z - 16, planetSpeed);
+    } else {
+        // Go back to inital pos when camera out of range
+        saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, 90, planetSpeed);
+        ring.position.z = THREE.MathUtils.lerp(ring.position.z, 90, planetSpeed);
+    }
+}
+
 // Listen for the scroll event
 window.addEventListener('scroll', handleScroll);
+
 
 // Animation loop
 function animate() {
@@ -82,32 +119,12 @@ function animate() {
     glowMesh.rotation.y += 0.0002;
     cloudsMesh.rotation.y += 0.00023;
     jupiter.rotation.y += 0.0002;
-    saturn.rotation.y += 0.0008;
-    ring.rotation.z += 0.0002;
+    saturn.rotation.y += 0.0002;
+    ring.rotation.z -= 0.00005;
     mars.rotation.y += 0.0002;
-        
 
-    // Adjust mars pos based on camera pos, so it stays in view on section 2 
-    if (camera.position.z >= 20 && camera.position.z <= 33) {
-        // Sinusoidal motion
-        const offset = Math.sin(camera.position.z * 0.1) * 0.2;
+    handlePlanetFollow();
 
-        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, 0.01);
-        mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, 0.05);
-    } else {
-        // Go back to inital pos when camera out of range
-        mars.position.z = THREE.MathUtils.lerp(mars.position.z, 26.5, 0.01);
-    }
-
-    //Adjust jupiter pos based on camera pos, so it stays in view on section 3
-    if (camera.position.z >= 40 && camera.position.z <= 60) {
-        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, 0.01);
-    } else {
-        // Go back to inital pos when camera out of range
-        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 34, 0.01);
-    }
-
-    console.log(`width ${window.innerWidth}, height ${window.innerHeight}`);
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
 }
