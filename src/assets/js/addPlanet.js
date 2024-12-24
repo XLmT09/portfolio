@@ -71,7 +71,11 @@ export function getPlanet({img = '', size = 1, position = [], glow}) {
   planet.scale.setScalar(size);
 
   // Add slight tilt to the planet
-  planetGroup.rotation.z = -20.4 * Math.PI / 180;
+  if (img == "saturn.jpg") {
+    planetGroup.rotation.z = -6 * Math.PI / 180;
+  } else {
+    planetGroup.rotation.z = -20.4 * Math.PI / 180;
+  }
     
   const planetRimMat = getFresnelMat({ rimHex: glow, facingHex: 0x000000 });
   const planetRimMesh = new THREE.Mesh(geo, planetRimMat);
@@ -87,7 +91,7 @@ export function getPlanet({img = '', size = 1, position = [], glow}) {
 
 export function getSaturnsRing({img = '', position = []}) {
   const ringTexture = textLoader.load(`/images/planets/${img}`);
-  const innerRingRadius = 8;
+  const innerRingRadius = 9;
   const outerRingRadius = 12;
   // Higher segment makes the ring smoother
   const segmentNumber = 128;
@@ -103,12 +107,11 @@ export function getSaturnsRing({img = '', position = []}) {
   });
 
   const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-
-  ring.rotation.x = Math.PI / 2.2; 
-  ring.rotation.z = Math.PI / 4; 
+  ring.rotation.x = Math.PI / 2;  // Tilt downward
+  ring.rotation.y = -Math.PI / 40;  // Rotate towards the right
+  ring.rotation.z = 0;  // Optional: Adjust for finer control if necessary
 
   ring.position.set(...position);
 
   return ring;
 }
-
