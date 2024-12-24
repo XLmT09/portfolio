@@ -25,7 +25,7 @@ const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas })
 backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
 
 const jupiterRadius = 10 / 2;
-const planetSpeed = 0.005;
+const planetSpeed = 0.01;
 
 // Set initial camera position
 camera.position.z = 5;
