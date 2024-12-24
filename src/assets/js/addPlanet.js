@@ -10,7 +10,7 @@ export function createEarthGroup(pos) {
   earthGroup.rotation.z = -20.4 * Math.PI / 180;
 
   // Load the texture for the Earth
-  const texture = textLoader.load("/images/planets/earth.jpg");
+  const texture = textLoader.load("images/planets/earth.jpg");
   const geometry = new THREE.IcosahedronGeometry(1, 15);
   const material = new THREE.MeshStandardMaterial({ map: texture });
 
@@ -19,7 +19,7 @@ export function createEarthGroup(pos) {
   earthGroup.position.set(...pos);
 
   // Load the texture for the Earth light
-  const earthLight = textLoader.load("/images/planets/earth_light.jpg");
+  const earthLight = textLoader.load("images/planets/earth_light.jpg");
   const lightsMat = new THREE.MeshBasicMaterial({
       map: earthLight,
       // Defines how the material blends with the background, in this case 
@@ -30,7 +30,7 @@ export function createEarthGroup(pos) {
   earthGroup.add(lightsMesh);
 
   // Load the texture for the Earth clouds
-  const earthCloudTexture = textLoader.load("/images/planets/earth_clouds.jpg");
+  const earthCloudTexture = textLoader.load("images/planets/earth_clouds.jpg");
   const cloudsMat = new THREE.MeshStandardMaterial({
       map: earthCloudTexture,
       transparent: true,
@@ -63,7 +63,7 @@ export function getPlanet({img = '', size = 1, position = [], glow}) {
   planetGroup.position.set(...position);
 
   
-  const map = textLoader.load(`/images/planets/${img}`);
+  const map = textLoader.load(`images/planets/${img}`);
   const planetMat = new THREE.MeshStandardMaterial({
     map,
   });
@@ -90,7 +90,7 @@ export function getPlanet({img = '', size = 1, position = [], glow}) {
 }
 
 export function getSaturnsRing({img = '', position = []}) {
-  const ringTexture = textLoader.load(`/images/planets/${img}`);
+  const ringTexture = textLoader.load(`images/planets/${img}`);
   const innerRingRadius = 9;
   const outerRingRadius = 12;
   // Higher segment makes the ring smoother
