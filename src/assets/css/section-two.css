@@ -55,7 +55,6 @@
   margin: 5px; /* Adds spacing around the boxes */
 }
 
-/* Media query for screens 700px or smaller */
 @media (max-width: 700px) {
   #section2 .box-container {
     flex-wrap: wrap; /* Allows wrapping */
