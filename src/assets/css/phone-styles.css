@@ -1,6 +1,4 @@
-/* Small screens: Up to 767px */
 @media (max-width: 700px) {
-/* Navbar container */
 .navbar {
   background: rgba(29, 29, 29, 0.3);
   backdrop-filter: blur(10px);
@@ -33,7 +31,7 @@
 
 /* Active state: show the menu */
 .navbar-menu.active {
-  visibility: visible; /* Make the menu invisible */
+  visibility: visible;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +39,6 @@
   transform: translateY(0);
 }
 
-/* Links */
 .navbar-menu a {
   color: #31f827;
   padding: 5px;

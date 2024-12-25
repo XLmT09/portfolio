@@ -3,7 +3,6 @@
   display: none;
 }
 
-/* Style for the popup */
 .popup {
   display: none; /* Hidden by default */
   position: fixed;
@@ -59,7 +58,7 @@
   gap: 10px; /* Space between Leave button and GitHub icon */
 }
 
-/* Leave button styles (existing styles retained) */
+/* Leave button styles */
 .close-btn {
   font-weight: 900;
   font-size: 20px;
