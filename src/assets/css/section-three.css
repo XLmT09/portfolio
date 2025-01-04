@@ -17,7 +17,7 @@
 }
 
 #section3 .section-content {
-  width: 60vw;
+  width: 80vw;
   text-align: center;
 }
 
@@ -39,6 +39,7 @@
   display: flex;
   flex-wrap: nowrap; /* Prevent wrapping */
   justify-content: space-between; /* Add spacing between boxes */
+  overflow-x: auto; /* Enable horizontal scrolling */
 }
 
 #section3 .box {
@@ -47,7 +48,7 @@
   border-radius: 10px;
   padding: 10px;
   backdrop-filter: blur(10px);
-  flex: 1; /* Equal width for each box */
+  flex: 0 0 calc(33.33% - 10px); /* 33.33% width to fit 3 boxes per row */
   box-sizing: border-box;
   margin: 5px; /* Adds spacing around the boxes */
   max-width: 400px;
@@ -55,46 +56,14 @@
 }
 
 @media (max-width: 900px) {
-  #section3 .box-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: space-between; /* Distribute space evenly */
-  }
-  
-  #section3 .box {
-    flex: 0 0 calc(33.33% - 10px); /* 33.33% width to fit 3 boxes per row */
-    margin: 5px; /* Space between items */
-    box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
-  }
-
   #section3 .section-content {
-    width: 100vw;
+    width: 95vw;
   }
 }
 
-@media (max-width: 400px) {
-  #section3 .box-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: space-between; /* Distribute space evenly */
-  }
-
-#section3 .box-container {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap */
-  justify-content: space-between; /* Distribute space evenly */
-}
-
-#section3 .box {
-  flex: 0 0 calc(50% - 10px); /* 50% width for two boxes per row */
-  margin: 5px; /* Adds spacing between the boxes */
-  box-sizing: border-box; /* Ensures padding and borders are included in the width */
-}
-
-#section3 .box {
-    flex: 0 0 calc(50% - 10px); /* 33.33% width to fit 3 boxes per row */
-    margin: 5px; /* Space between items */
-    box-sizing: border-box; /* Ensure padding and borders are included in width calculations */
+@media (max-width: 450px) {
+  #section3 .box {
+    flex: 0 0 calc(50% - 10px); /* 50% width for two boxes per row */
   }
 }
 
