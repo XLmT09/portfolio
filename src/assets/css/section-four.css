@@ -1,5 +1,5 @@
 #section4 h1 {
-  font-size: clamp(30px, 6vw + 1rem, 150px);
+  font-size: clamp(35px, 6vw + 1rem, 150px);
   margin: 0;
   padding: 0;
   font-weight: 900;
@@ -95,7 +95,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   #section4 .box-container {
     width: 100vw;
   }
