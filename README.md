@@ -1,6 +1,6 @@
 ![Website Status](https://img.shields.io/website?url=https://xlmt09.github.io/portfolio/)
 ![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-blue)
-![Version](https://img.shields.io/badge/version-1.1.1-brightgreen)
+![Version](https://img.shields.io/badge/version-1.2.1-brightgreen)
 ![Three.js](https://img.shields.io/badge/3D-Three.js-green)
 
 # Hijithan's Website
