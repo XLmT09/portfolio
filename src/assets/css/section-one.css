@@ -1,5 +1,5 @@
 #section1 h1 {
-  font-size: clamp(50px, 7.7vw + 1rem, 600px);
+  font-size: clamp(10px, 7.7vw + 0.5rem, 600px);
   margin: 0;
   padding: 0;
   font-weight: 900;
