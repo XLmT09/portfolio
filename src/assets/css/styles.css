@@ -6,7 +6,7 @@ body {
   position: relative;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  cursor: url("target-cursor.png"), auto;
+  cursor: url("target-cursor.png") 16 16, auto;
 }
 
 p {
