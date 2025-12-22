@@ -9,6 +9,11 @@ body {
   cursor: url("target-cursor.png") 16 16, auto;
 }
 
+/* When hovering over links, don't switch to pointer */
+a {
+  cursor: url("target-cursor.png") 16 16, auto;
+}
+
 p {
   color: #31f827;
   font-size: 1em;

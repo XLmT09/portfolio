@@ -11,6 +11,7 @@
     left: 50%; /* Position the left edge at the center */
     transform: translateX(-50%); /* Shift it left by half its width */
     z-index: 1000; /* Ensure it stays above other content */
+    cursor: inherit;
   }
   
   .navbar-menu {
@@ -37,16 +38,19 @@
     border-radius: 10px;
     text-align: center;
     white-space: nowrap; /* Prevent text from breaking within links */
+    cursor: inherit;
   }
   
   .navbar-menu a i {
       margin-right: 8px; /* Add space between icon and text */
+      cursor: inherit;
   }
   
   .navbar-menu a:hover {
     background-color: #0da105;
     color: white;
     border-radius: 10px;
+    cursor: inherit;
   }
 
   .navbar-toggle {
