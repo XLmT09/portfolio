@@ -11,7 +11,8 @@ export function shootLaser(camera, raycaster, mouse, scene, lasers) {
   const laser = new THREE.Mesh(geometry, material);
 
   // Now add glow to laser objects
-  const glowGeometry = new THREE.BoxGeometry(0.12, 0.12, 0.1);
+  const glowGeometry = new THREE.CylinderGeometry(0.06, 0.06, 0.5, 12);
+  glowGeometry.rotateX(Math.PI / 2);
   const glowMaterial = new THREE.MeshBasicMaterial({
     color: 0x45000,
     transparent: true,
