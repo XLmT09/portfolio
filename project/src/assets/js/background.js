@@ -1,6 +1,7 @@
 import { createEarthGroup, getPlanet, getSaturnsRing } from './addPlanet.js';
 import { createStars } from './starfield.js';
 import { shootLaser, moveAllLasers } from './lasers.js';
+import { setScrollListener, setLaserListener, setMouseListener, setResizeListener } from './eventListeners.js';
 
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -109,39 +110,11 @@ function handlePlanetFollow() {
     }
 }
 
-
-// ADD ALL EVENT LISTENERS HERE
-window.addEventListener('scroll', handleScroll);
-
-let isFiring = false;
-let fireInterval = null;
-
-window.addEventListener('mousedown', () => {
-  if (isFiring) return;
-
-  isFiring = true;
-
-  // Fire immediately (click)
-  shootLaser(camera, raycaster, mouse, scene, lasers);
-
-  // Fire repeatedly (hold)
-  fireInterval = setInterval(() => {
-    shootLaser(camera, raycaster, mouse, scene, lasers);
-  }, 100); // fire rate (ms)
-});
-
-window.addEventListener('mouseup', () => {
-  isFiring = false;
-  clearInterval(fireInterval);
-});
-
-
-// Get latest coords of mouse and convert them into ThreeJS coords
-window.addEventListener('mousemove', (event) => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-});
-
+// Add all the event listeners here
+setScrollListener(handleScroll);
+setLaserListener(shootLaser, 100, camera, raycaster, mouse, scene, lasers);
+setMouseListener(mouse);
+setResizeListener(backgroundRenderer, renderer, camera);
 
 // Animation loop
 function animate() {
@@ -168,11 +141,3 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
-
-// Adjust canvas size on window resize
-window.addEventListener("resize", () => {
-    backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-});
