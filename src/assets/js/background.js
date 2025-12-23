@@ -76,7 +76,7 @@ function handleScroll() {
     camera.position.z = 5 + scrollFraction * 100;
 }
 
-// Function to update planet positions baed on camera
+// Function to update planet positions based on camera
 function handlePlanetFollow() {
     // Adjust mars pos based on camera pos, so it stays in view on section 2 
     if (camera.position.z >= 20 && camera.position.z <= 33) {
@@ -86,7 +86,7 @@ function handlePlanetFollow() {
         mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, planetSpeed);
         mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, planetSpeed);
     } else {
-        // Go back to inital pos when camera out of range
+        // Go back to initial pos when camera out of range
         mars.position.z = THREE.MathUtils.lerp(mars.position.z, 26.5, planetSpeed);
     }
 
@@ -94,7 +94,7 @@ function handlePlanetFollow() {
     if (camera.position.z >= 40 && camera.position.z <= 60) {
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, planetSpeed);
     } else {
-        // Go back to inital pos when camera out of range
+        // Go back to initial pos when camera out of range
         jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 30, planetSpeed);
     }
 
@@ -103,7 +103,7 @@ function handlePlanetFollow() {
         saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, camera.position.z - 16, planetSpeed);
         ring.position.z = THREE.MathUtils.lerp(ring.position.z, camera.position.z - 16, planetSpeed);
     } else {
-        // Go back to inital pos when camera out of range
+        // Go back to initial pos when camera out of range
         saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, 90, planetSpeed);
         ring.position.z = THREE.MathUtils.lerp(ring.position.z, 90, planetSpeed);
     }
