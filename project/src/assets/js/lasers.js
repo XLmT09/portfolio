@@ -3,7 +3,8 @@ const MAX_RENDER_DISTANCE = 200;
 
 export function shootLaser(camera, raycaster, mouse, scene, lasers) {
   // Creates a 3D box, in other words the laser beam
-  const geometry = new THREE.BoxGeometry(0.05, 0.05, 1);
+  const geometry = new THREE.CylinderGeometry(0.04, 0.04, 1, 12);
+  geometry.rotateX(Math.PI / 2);
   // Add light green color to laser
   const material = new THREE.MeshBasicMaterial({ color: 0x31f827 });
   // Combine the shape and appearance
@@ -42,7 +43,7 @@ export function shootLaser(camera, raycaster, mouse, scene, lasers) {
   // Push it forward a bit so it's in front of the near plane
   laser.position.add(
     new THREE.Vector3(0, 0, -0.5).applyQuaternion(camera.quaternion)
-  );
+);
   
   scene.add(laser);
   // Add inside array so that animation loop can move all the lasers in every frame
