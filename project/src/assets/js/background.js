@@ -113,9 +113,28 @@ function handlePlanetFollow() {
 // ADD ALL EVENT LISTENERS HERE
 window.addEventListener('scroll', handleScroll);
 
-window.addEventListener('click', () => {
+let isFiring = false;
+let fireInterval = null;
+
+window.addEventListener('mousedown', () => {
+  if (isFiring) return;
+
+  isFiring = true;
+
+  // Fire immediately (click)
   shootLaser(camera, raycaster, mouse, scene, lasers);
+
+  // Fire repeatedly (hold)
+  fireInterval = setInterval(() => {
+    shootLaser(camera, raycaster, mouse, scene, lasers);
+  }, 100); // fire rate (ms)
 });
+
+window.addEventListener('mouseup', () => {
+  isFiring = false;
+  clearInterval(fireInterval);
+});
+
 
 // Get latest coords of mouse and convert them into ThreeJS coords
 window.addEventListener('mousemove', (event) => {
