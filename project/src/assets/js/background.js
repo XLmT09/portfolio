@@ -1,5 +1,6 @@
 import { createEarthGroup, getPlanet, getSaturnsRing } from './addPlanet.js';
 import { createStars } from './starfield.js';
+import { shootLaser, moveAllLasers } from './lasers.js';
 
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -26,6 +27,15 @@ backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
 
 const jupiterRadius = 10 / 2;
 const planetSpeed = 0.01;
+
+// Holds all laser objects currently in scene
+const lasers = [];
+
+// This var will hold the most up to date mouse coords
+const mouse = new THREE.Vector2();
+
+// Create a reusable ray-shooting tool
+const raycaster = new THREE.Raycaster();
 
 // Set initial camera position
 camera.position.z = 5;
@@ -68,8 +78,6 @@ function handleScroll() {
 
 // Function to update planet positions baed on camera
 function handlePlanetFollow() {
-
-
     // Adjust mars pos based on camera pos, so it stays in view on section 2 
     if (camera.position.z >= 20 && camera.position.z <= 33) {
         // Sinusoidal motion
@@ -101,8 +109,19 @@ function handlePlanetFollow() {
     }
 }
 
-// Listen for the scroll event
+
+// ADD ALL EVENT LISTENERS HERE
 window.addEventListener('scroll', handleScroll);
+
+window.addEventListener('click', () => {
+  shootLaser(camera, raycaster, mouse, scene, lasers);
+});
+
+// Get latest coords of mouse and convert them into ThreeJS coords
+window.addEventListener('mousemove', (event) => {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+});
 
 
 // Animation loop
@@ -124,6 +143,7 @@ function animate() {
     mars.rotation.y += 0.0002;
 
     handlePlanetFollow();
+    moveAllLasers(lasers, scene);
 
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
