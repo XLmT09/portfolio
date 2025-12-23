@@ -19,6 +19,12 @@ p {
   font-size: 1em;
 }
 
+.no-highlight {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 h1 {
   color: #ffffff;
   z-index: 1005;
