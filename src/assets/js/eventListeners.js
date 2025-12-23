@@ -1,4 +1,16 @@
-export function setScrollListener(handleScroll) {
+export function setScrollListener(camera) {
+  // Function to update camera based on scroll position
+  function handleScroll() {
+      // Get the vertical scroll position
+      const scrollY = window.scrollY;
+      // Maximum scrollable height
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      // Calculate the scroll fraction (0 to 1)
+      const scrollFraction = scrollY / maxScroll; 
+      // Adjust multiplier for the zoom effect
+      camera.position.z = 5 + scrollFraction * 100;
+  }
+
   window.addEventListener('scroll', handleScroll);
 }
 
