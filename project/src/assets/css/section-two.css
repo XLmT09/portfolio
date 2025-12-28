@@ -75,3 +75,18 @@
 #section2 .box:hover p {
   color: white;
 }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+#rhul-image {
+  width: 10%;
+}
+
+.description-p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
