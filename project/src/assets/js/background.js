@@ -1,5 +1,8 @@
 import { createEarthGroup, getPlanet, getSaturnsRing } from './addPlanet.js';
 import { createStars } from './starfield.js';
+import { shootLaser, moveAllLasers } from './lasers.js';
+import { setScrollListener, setLaserListener, setMouseListener, setResizeListener } from './eventListeners.js';
+import { handlePlanetFollow } from './handlers.js';
 
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -24,8 +27,14 @@ renderer.clear();
 const backgroundRenderer = new THREE.WebGLRenderer({ canvas: backgroundCanvas });
 backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
 
-const jupiterRadius = 10 / 2;
-const planetSpeed = 0.01;
+// Holds all laser objects currently in scene
+const lasers = [];
+
+// This var will hold the most up to date mouse coords
+const mouse = new THREE.Vector2();
+
+// Create a reusable ray-shooting tool
+const raycaster = new THREE.Raycaster();
 
 // Set initial camera position
 camera.position.z = 5;
@@ -54,56 +63,11 @@ const sunLight = new THREE.DirectionalLight(0xffffff, 1.0);
 sunLight.position.set(-2, 0.5, 1.5);
 scene.add(sunLight);
 
-// Function to update camera based on scroll position
-function handleScroll() {
-    // Get the vertical scroll position
-    const scrollY = window.scrollY;
-    // Maximum scrollable height
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
-    // Calculate the scroll fraction (0 to 1)
-    const scrollFraction = scrollY / maxScroll; 
-    // Adjust multiplier for the zoom effect
-    camera.position.z = 5 + scrollFraction * 100;
-}
-
-// Function to update planet positions baed on camera
-function handlePlanetFollow() {
-
-
-    // Adjust mars pos based on camera pos, so it stays in view on section 2 
-    if (camera.position.z >= 20 && camera.position.z <= 33) {
-        // Sinusoidal motion
-        const offset = Math.sin(camera.position.z * 0.1) * 0.2;
-
-        mars.position.z = THREE.MathUtils.lerp(mars.position.z, camera.position.z - 2.8, planetSpeed);
-        mars.position.x = THREE.MathUtils.lerp(mars.position.x, -1 - offset, planetSpeed);
-    } else {
-        // Go back to inital pos when camera out of range
-        mars.position.z = THREE.MathUtils.lerp(mars.position.z, 26.5, planetSpeed);
-    }
-
-    // Adjust jupiter pos based on camera pos, so it stays in view on section 3
-    if (camera.position.z >= 40 && camera.position.z <= 60) {
-        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, camera.position.z -jupiterRadius - 18, planetSpeed);
-    } else {
-        // Go back to inital pos when camera out of range
-        jupiter.position.z = THREE.MathUtils.lerp(jupiter.position.z, 30, planetSpeed);
-    }
-
-    // Adjust saturn pos based on camera pos, so it stays in view on section 4
-    if (camera.position.z >= 75 && camera.position.z <= 100) {
-        saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, camera.position.z - 16, planetSpeed);
-        ring.position.z = THREE.MathUtils.lerp(ring.position.z, camera.position.z - 16, planetSpeed);
-    } else {
-        // Go back to inital pos when camera out of range
-        saturn.position.z = THREE.MathUtils.lerp(saturn.position.z, 90, planetSpeed);
-        ring.position.z = THREE.MathUtils.lerp(ring.position.z, 90, planetSpeed);
-    }
-}
-
-// Listen for the scroll event
-window.addEventListener('scroll', handleScroll);
-
+// Add all the event listeners here
+setScrollListener(camera);
+setLaserListener(shootLaser, 100, camera, raycaster, mouse, scene, lasers);
+setMouseListener(mouse);
+setResizeListener(backgroundRenderer, renderer, camera);
 
 // Animation loop
 function animate() {
@@ -123,17 +87,10 @@ function animate() {
     ring.rotation.z -= 0.00005;
     mars.rotation.y += 0.0002;
 
-    handlePlanetFollow();
+    handlePlanetFollow(camera, mars, jupiter, saturn, ring);
+    moveAllLasers(lasers, scene);
 
     backgroundRenderer.render(backgroundScene, camera);
     renderer.render(scene, camera);
 }
 animate();
-
-// Adjust canvas size on window resize
-window.addEventListener("resize", () => {
-    backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-});

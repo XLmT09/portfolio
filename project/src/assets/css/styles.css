@@ -6,11 +6,23 @@ body {
   position: relative;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  cursor: url("target-cursor.png") 16 16, auto;
+}
+
+/* When hovering over links, don't switch to pointer */
+a {
+  cursor: url("target-cursor.png") 16 16, auto;
 }
 
 p {
   color: #31f827;
   font-size: 1em;
+}
+
+.no-highlight {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 h1 {

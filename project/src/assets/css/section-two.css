@@ -68,7 +68,6 @@
 }
 
 #section2 .box:hover {
-  cursor: pointer;
   background-color: #0da105;
   transition: background-color 0.8s;
 }

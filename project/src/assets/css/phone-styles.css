@@ -77,7 +77,6 @@
 /* Hamburger menu icon */
 .navbar-toggle {
   display: flex;
-  cursor: pointer;
   flex-direction: column;
   outline: none;
   width: 25px;
