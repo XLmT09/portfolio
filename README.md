@@ -15,5 +15,11 @@ You can access the website [here](https://xlmt09.github.io/portfolio/).
 2. Install dependencies.
 3. Use the command `npm run dev` to run localhost website.
 
+## Access Localhost on other Devices
+1. Make sure all devices are connected to the same network (e.g. the same Wi-Fi).
+2. Start the development server with host access enabled `npm run dev -- --host`.
+3. After the server starts, one or more network URLs will be displayed.
+4. Open one of the network URLs on another device to access the webpage.
+
 ## Credits
 All image textures under the `planets` directory were taken from [solarsystemscope](https://www.solarsystemscope.com/textures/).
