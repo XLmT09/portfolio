@@ -152,11 +152,15 @@
   }
 }
 
-/** When height is about 670px popup content gets
-cropped out a little from the top and bottom. Reducing
-max height will solve this issue */
-@media (max-height: 800px) {
+@media (max-width: 700px) and (orientation: portrait) {
+  /** When height is about 670px popup content gets
+  cropped out a little from the top and bottom. Reducing
+  max height will solve this issue */
   .popup-content {
     max-height: 80vh;
+  }
+
+  .description-p {
+    font-size: 0.9em;
   }
 }
