@@ -75,3 +75,15 @@
 #section2 .box:hover p {
   color: white;
 }
+
+#cubic-image {
+  width: clamp(70px, 11vw, 120px);
+}
+
+#rhul-image {
+  width: clamp(70px, 11vw, 120px);
+}
+
+#hpe-image {
+  width: clamp(70px, 13vw, 140px);
+}

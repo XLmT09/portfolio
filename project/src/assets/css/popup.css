@@ -43,7 +43,6 @@
 
 #popup-text p {
   font-size: clamp(5px, 0.45vw + 0.8rem, 22px);
-  margin-bottom: 1%;
 }
 
 #popup-text h2 {
@@ -96,7 +95,7 @@
 
 .popup-content img{
   width: 50%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   border: 3px solid #0da105;
   display: inline-block;
   vertical-align: middle;
@@ -104,8 +103,64 @@
   display: inline-block;
 }
 
+#portfolio-image {
+  width: 35%;
+}
+
+#maze-image {
+  width: 35%;
+}
+
+#bunny-image {
+  width: 35%;
+}
+
+.description-p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.bullet {
+  color: #4eff92;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
 @media (max-width: 700px) {
   .popup-content {
     width: 85%;
+  }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  /** When height is about 670px popup content gets
+  cropped out a little from the top and bottom. Reducing
+  max height will solve this issue */
+  .popup-content {
+    max-height: 80vh;
+  }
+
+  .description-p {
+    font-size: 0.9em;
   }
 }
