@@ -115,6 +115,37 @@
   width: 35%;
 }
 
+.description-p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.bullet {
+  color: #4eff92;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
 @media (max-width: 700px) {
   .popup-content {
     width: 85%;
@@ -124,7 +155,7 @@
 /** When height is about 670px popup content gets
 cropped out a little from the top and bottom. Reducing
 max height will solve this issue */
-@media (max-height: 700px) {
+@media (max-height: 800px) {
   .popup-content {
     max-height: 80vh;
   }

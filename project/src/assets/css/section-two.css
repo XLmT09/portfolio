@@ -76,17 +76,6 @@
   color: white;
 }
 
-.header-row {
-  display: flex;
-  align-items: center;
-  gap: 5%;
-}
-
-.bullet {
-  color: #4eff92;
-  animation: pulse 1.5s infinite ease-in-out;
-}
-
 #cubic-image {
   width: clamp(70px, 11vw, 120px);
 }
@@ -97,19 +86,4 @@
 
 #hpe-image {
   width: clamp(70px, 13vw, 140px);
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
 }
