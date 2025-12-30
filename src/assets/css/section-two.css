@@ -82,26 +82,21 @@
   gap: 5%;
 }
 
-#hpe-image {
-  width: 15%;
-}
-
-#rhul-image {
-  width: 10%;
-}
-
-#cubic-image {
-  width: 10%;
-}
-
-.description-p {
-  font-size: 1em;
-  margin-bottom: 0.5em;
-}
-
 .bullet {
   color: #4eff92;
   animation: pulse 1.5s infinite ease-in-out;
+}
+
+#cubic-image {
+  width: clamp(70px, 11vw, 120px);
+}
+
+#rhul-image {
+  width: clamp(70px, 11vw, 120px);
+}
+
+#hpe-image {
+  width: clamp(70px, 13vw, 140px);
 }
 
 @keyframes pulse {
