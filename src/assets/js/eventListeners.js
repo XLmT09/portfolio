@@ -52,6 +52,24 @@ export function setLaserListener(shootLaser, fireRate, camera, raycaster, mouse,
     clearInterval(fireInterval);
   }
 
-  window.addEventListener('pointerdown', startFiring);
-  window.addEventListener('pointerup', stopFiring);
+  function fireOnce() {
+    shootLaser(camera, raycaster, mouse, scene, lasers);
+  }
+
+  /* Touchscreen devices use tap-to-fire instead of hold-to-fire.
+  This avoids inconsistent behavior caused by varying touch 
+  responsiveness across devices. */
+  window.addEventListener("pointerdown", (e) => {
+  if (e.pointerType === "mouse") {
+    startFiring(); // hold to fire
+  } else {
+    fireOnce(); // tap to fire
+  }
+  });
+
+  window.addEventListener("pointerup", (e) => {
+    if (e.pointerType === "mouse") {
+      stopFiring();
+    }
+  });
 }
