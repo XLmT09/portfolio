@@ -55,9 +55,10 @@
 }
 
 #section1 .box2 {
+  display: inline-block;
   background: rgba(29, 29, 29, 0.3);
   border: 2px solid #31f827;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0.5em 1em;
   backdrop-filter: blur(10px);
 }
