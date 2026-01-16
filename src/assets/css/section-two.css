@@ -28,7 +28,6 @@
   }
 }
 
-    
 #section2 p {
   font-size: clamp(5px, 0.45vw + 0.5rem, 18px);
   margin: 0;
@@ -53,6 +52,12 @@
   flex: 1; /* Each box takes equal width */
   box-sizing: border-box; /* Ensures padding and border are included in width */
   margin: 5px; /* Adds spacing around the boxes */
+  display: flex;
+  flex-direction: column;
+}
+
+#section2 .job-meta {
+  margin-top: auto; /* Set position to the bottom of the box */
 }
 
 @media (max-width: 700px) {
