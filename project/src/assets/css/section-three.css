@@ -55,6 +55,15 @@
   max-height: 500px;
 }
 
+/* Remove margin on the first and last box, to disable micro scrolling */
+#section3 .box31 {
+  margin-left: 0;
+}
+
+#section3 .box35 {
+  margin-right: 0;
+}
+
 @media (max-width: 900px) {
   #section3 .section-content {
     width: 95vw;
