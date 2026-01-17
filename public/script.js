@@ -54,12 +54,20 @@ function closePopup() {
 }
 
 function disableScroll() {
+  document.body.style.overflowY = 'hidden';
   document.body.addEventListener('wheel', preventDefault, { passive: false });
 }
 
+// Stop browsers normal default behaviour for an event
+function preventDefault(e) {
+  e.preventDefault();
+}
+
 function enableScroll() {
+  document.body.style.overflowY = '';
   document.body.removeEventListener('wheel', preventDefault);
 }
+
 
 function preventDefault(e) {
   e.preventDefault();
