@@ -13,7 +13,7 @@
 }
 
 #section3 h2 {
-  font-size: clamp(5px, 0.8vw + 0.8rem, 30px);
+  font-size: clamp(5px, 0.8vw + 0.8rem, 25px);
 }
 
 #section3 .section-content {
@@ -22,9 +22,12 @@
 }
 
 #section3 img {
-  width: 95%;
+  width: clamp(100px, 20vw, 300px);
   margin-bottom: 5%;
   border: 3px solid #0da105;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto
 }
 
 #section3 p {
@@ -39,7 +42,7 @@
   display: flex;
   flex-wrap: nowrap; /* Prevent wrapping */
   justify-content: space-between; /* Add spacing between boxes */
-  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-x: auto;
 }
 
 #section3 .box {
@@ -53,6 +56,18 @@
   margin: 5px; /* Adds spacing around the boxes */
   max-width: 400px;
   max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Remove margin on the first and last box, to disable micro scrolling */
+#section3 .box31 {
+  margin-left: 0;
+}
+
+#section3 .box35 {
+  margin-right: 0;
 }
 
 @media (max-width: 900px) {

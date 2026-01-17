@@ -93,6 +93,10 @@
   text-align: center;
 }
 
+.img-container {
+  margin-top: 2%;
+}
+
 .popup-content img{
   width: 50%;
   margin-bottom: 1%;
