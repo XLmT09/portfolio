@@ -1,6 +1,6 @@
 ![Website Status](https://img.shields.io/website?url=https://xlmt09.github.io/portfolio/)
 ![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-blue)
-![Version](https://img.shields.io/badge/version-1.3.1-brightgreen)
+![Version](https://img.shields.io/badge/version-1.5.1-brightgreen)
 ![Three.js](https://img.shields.io/badge/3D-Three.js-green)
 
 # Hijithan's Website
@@ -20,6 +20,18 @@ You can access the website [here](https://xlmt09.github.io/portfolio/).
 2. Start the development server with host access enabled `npm run dev -- --host`.
 3. After the server starts, one or more network URLs will be displayed.
 4. Open one of the network URLs on another device to access the webpage.
+
+## How to Deploy New Changes
+1. First we need to build our dist package and commit it:
+    ```bash
+    npm run build
+    git add build -f
+    git commit -m "..."
+    ```
+2. Push to prod branch
+    ```bash
+    git subtree push --prefix project origin gh-pages
+    ```
 
 ## Credits
 All image textures under the `planets` directory were taken from [solarsystemscope](https://www.solarsystemscope.com/textures/).
