@@ -32,6 +32,49 @@ export function setResizeListener(backgroundRenderer, renderer, camera) {
   });
 }
 
+function checkAndTriggerLaser(startFiring, stopFiring, fireOnce) {
+  let startX = 0;
+  let startY = 0;
+  let isScrolling = false;
+  const MOVE_THRESHOLD = 10; // px
+
+  /* Touchscreen devices use tap-to-fire instead of hold-to-fire.
+  This avoids inconsistent behavior caused by varying touch 
+  responsiveness across devices. */
+  window.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse") {
+      startFiring(); // hold to fire
+      return;
+    }
+
+    startX = e.clientX;
+    startY = e.clientY;
+    isScrolling = false;
+  });
+
+  window.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "touch") return;
+
+    const dx = Math.abs(e.clientX - startX);
+    const dy = Math.abs(e.clientY - startY);
+
+    if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) {
+      isScrolling = true;
+    }
+  });
+
+  window.addEventListener("pointerup", (e) => {
+    if (e.pointerType === "mouse") {
+      stopFiring();
+      return;
+    }
+
+    if (!isScrolling) {
+      fireOnce(); // tap detected
+    }
+  });
+}
+
 export function setLaserListener(shootLaser, fireRate, camera, raycaster, mouse, scene, lasers) {
   let isFiring = false;
   let fireInterval = null;
@@ -56,20 +99,5 @@ export function setLaserListener(shootLaser, fireRate, camera, raycaster, mouse,
     shootLaser(camera, raycaster, mouse, scene, lasers);
   }
 
-  /* Touchscreen devices use tap-to-fire instead of hold-to-fire.
-  This avoids inconsistent behavior caused by varying touch 
-  responsiveness across devices. */
-  window.addEventListener("pointerdown", (e) => {
-  if (e.pointerType === "mouse") {
-    startFiring(); // hold to fire
-  } else {
-    fireOnce(); // tap to fire
-  }
-  });
-
-  window.addEventListener("pointerup", (e) => {
-    if (e.pointerType === "mouse") {
-      stopFiring();
-    }
-  });
+  checkAndTriggerLaser(startFiring, stopFiring, fireOnce);
 }
