@@ -35,9 +35,12 @@
   <section class="section" id="section1">
     <div class="box-container">
       <div class="box1 no-highlight">
-        <p><b>HELLO, MY NAME IS</b></p>
         <h1>HIJITHAN</h1>
-        <h1>ARUNTHAVARAJAH.</h1>
+        <h1>ARUNTHAVARAJAH</h1>
+        <p class="box2"><b>
+          I'm a C++ Software Developer at Cubic, working on backend software for transportation devices 
+          and systems, formerly a C/C++ developer at HPE.
+        </b></p>
       </div>
     </div>
   </section>
@@ -48,13 +51,15 @@
       <div class="box-container">
         <div class="box box1"  onclick="showPopup(this)">
           <h2>ASSOCIATE SOFTWARE ENGINEER</h2>
-          <p><b>COMPANY:</b> Cubic Corporation</p>
-          <p><b>DATE:</b> Jul 2025 - Present</p>
+          <div class="job-meta">
+            <p><b>COMPANY:</b> Cubic Corporation</p>
+            <p><b>DATE:</b> Jul 2025 - Jan 2026</p>
+          </div>
           <div class="hidden-content" style="display: none;">
-            <h2>ASSOCIATE ENGINEER INTERN</h2>
+            <h2>ASSOCIATE SOFTWARE ENGINEER</h2>
             <div class="header-row">
               <p><span class="label">COMPANY</span><br><br> Cubic Corporation</p>
-              <p><span class="label">DATE</span><br><br> Jul 2025 - Present</p>
+              <p><span class="label">DATE</span><br><br> Jul 2025 - Jan 2026</p>
               <img id="cubic-image" src="src/assets/images/CUBICLogo.jpg" alt="RHUL Logo">
             </div>
             <p><span class="label">DESCRIPTION</span></p>
@@ -84,8 +89,10 @@
         </div>
         <div class="box box2"  onclick="showPopup(this)">
           <h2>CS TEACHING ASSISTANT</h2>
-          <p><b>COMPANY:</b> Royal Holloway</p>
-          <p><b>DATE:</b> Sep 2024 - Jun 2025</p>
+          <div class="job-meta">
+            <p><b>COMPANY:</b> Royal Holloway</p>
+            <p><b>DATE:</b> Sep 2024 - Jun 2025</p>
+          </div>
           <div class="hidden-content" style="display: none;">
             <h2>CS TEACHING ASSISTANT</h2>
             <div class="header-row">
@@ -108,8 +115,10 @@
         </div>
         <div class="box box3"  onclick="showPopup(this)">
           <h2>SOFTWARE ENGINEER INTERN</h2>
-          <p><b>COMPANY:</b> Hewlett Packard Enterprise</p>
-          <p><b>DATE:</b> Aug 2024 - Present</p>
+          <div class="job-meta">
+            <p><b>COMPANY:</b> Hewlett Packard Enterprise</p>
+            <p><b>DATE:</b> Jul 2023 - Jun 2025</p>
+          </div>
           <div class="hidden-content" style="display: none;">
             <h2>SOFTWARE ENGINEER INTERN</h2>
             <div class="header-row">
@@ -148,10 +157,12 @@
         </div>
         <div class="box box4"  onclick="showPopup(this)">
           <h2>CEDAS MATHS MENTOR</h2>
-          <p><b>COMPANY:</b> Royal Holloway</p>
-          <p><b>DATE:</b> Sep 2022 - Apr 2023</p>
+          <div class="job-meta">
+            <p><b>COMPANY:</b> Royal Holloway</p>
+            <p><b>DATE:</b> Sep 2022 - Apr 2023</p>
+          </div>
           <div class="hidden-content" style="display: none;">
-            <h2>MATH MENTOR</h2>
+            <h2>CEDAS MATH MENTOR</h2>
             <div class="header-row">
               <p><span class="label">COMPANY</span><br><br> Royal Holloway</p>
               <p><span class="label">DATE</span><br><br> September 2022 - April 2023</p>
@@ -207,8 +218,8 @@
               <span class="bullet">⦿</span> ThreeJS
             </div>
             <p class="label">DESCRIPTION</p>
-            <p>Developed a responsive, space-themed portfolio showcasing experience, projects and skills 
-            through interactive 3D visuals and UI animations.</p>
+            <div class="description-p">Developed a responsive, space-themed portfolio showcasing experience, projects and skills 
+            through interactive 3D visuals and UI animations.</div>
             <div class="img-container">
               <img id="portfolio-image" src="images\section3\section3_portfolio.png" alt="Image of my website portfolio.">
             </div>
@@ -227,10 +238,10 @@
               <span class="bullet">⦿</span> PyGame
             </div>
             <p class="label">DESCRIPTION</p>
-            <p>Built a Pygame simulation of a maze environment featuring an autonomous agent that 
+            <div class="description-p">Built a Pygame simulation of a maze environment featuring an autonomous agent that 
               navigates using a progression of search algorithms, including uninformed, informed, and 
               adversarial strategies, culminating in competitive multi-agent behavior.
-            </p>
+            </div>
             <div class="img-container">
               <img id="maze-image" src="images\section3\section3_maze.png" alt="Image of Single and Multi Agent in a Maze Game project.">
             </div>
@@ -249,10 +260,10 @@
               <span class="bullet">⦿</span> LeJos EV3
             </div>
             <p class="label">DESCRIPTION</p>
-            <p>Designed and built a robotic bunny as part of a team of four, using a hybrid hopping mechanism 
+            <div class="description-p">Designed and built a robotic bunny as part of a team of four, using a hybrid hopping mechanism 
             and sensor-based logic to simulate realistic rabbit movement and behavior. The robot adapts its actions based 
             on environmental inputs such as obstacles, color, sound, and lighting.
-            </p>
+            </div>
             <div class="img-container">
               <img id="bunny-image" src="images\section3\section3_bunny.jpg" alt="Image of robotic bunny">
             </div>
@@ -268,10 +279,10 @@
               <span class="bullet">⦿</span> JSON
             </div>
             <p class="label">DESCRIPTION</p>
-            <p>I built this theme to suit my own workflow and give me complete control over how my editor looks. 
+            <div class="description-p">I built this theme to suit my own workflow and give me complete control over how my editor looks. 
             It uses a black and green color scheme with neon syntax highlighting and is available on the Visual Studio Code 
             Marketplace.
-            </p>
+            </div>
             <div class="img-container">
               <img id="theme-image" src="images\section3\section3_theme.png" alt="Image of my VS Code Theme.">
             </div>
@@ -299,10 +310,10 @@
               <span class="bullet">⦿</span> SQL
             </div>
             <p class="label">DESCRIPTION</p>
-            <p>Collaborated in a team to design and build a full-stack restaurant management application, supporting both 
+            <div class="description-p">Collaborated in a team to design and build a full-stack restaurant management application, supporting both 
             customer-facing ordering and internal staff workflows. The system includes a backend for user, role, and order 
             management, along with dedicated interfaces for administrators, chefs, and waitstaff to manage the full order 
-            lifecycle.</p>
+            lifecycle.</div>
             <div class="img-container">
               <img src="images\section3\section3_restaraunt.jpg" alt="Image of restaurant application.">
             </div>
