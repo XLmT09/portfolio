@@ -8,7 +8,7 @@
 My portfolio website is developed using HTML, CSS, and JavaScript, incorporating the Three.js library for 3D graphics. It showcases my skills and projects through interactive and visually engaging elements, providing a modern and dynamic user experience.\
 You can access the website [here](https://xlmt09.github.io/portfolio/).
 
-<img src="project\public\images\section3\section3_portfolio.png" alt="Screenshot" width="430" height="400">
+<img src="project\src\images\projects\section3_portfolio.png" alt="Screenshot" width="430" height="400">
 
 ## How to Run Locally
 1. Go to the project directory.
@@ -25,7 +25,7 @@ You can access the website [here](https://xlmt09.github.io/portfolio/).
 1. First we need to build our dist package and commit it:
     ```bash
     npm run build
-    git add build -f
+    git add dist -f
     git commit -m "..."
     ```
 2. Push to prod branch
